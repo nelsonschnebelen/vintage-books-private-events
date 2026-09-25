@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Dining &amp; Events | Vintage Books, Honolulu</title>
+  <meta name="description" content="Private dining and events at Vintage Books — Honolulu's hidden literary speakeasy in Kaimuki. Buyouts for 20–75 guests, the Private Collection Lounge for up to 20. Holiday parties November 3 – January 11.">
+  <meta property="og:title" content="Private Dining &amp; Events at Vintage Books">
+  <meta property="og:description" content="Where every gathering becomes a story. Private buyouts and the Private Collection Lounge in Kaimuki, Honolulu.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://events.vintagebookshawaii.com/">
+  <meta property="og:image" content="pe-dining-room.jpg">
+  <link rel="icon" href="vb-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '825719913590196');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {
+      content_name: 'Vintage Books Private Events Page',
+      content_category: 'Private Events'
+    });
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=825719913590196&ev=PageView&noscript=1"/></noscript>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --ink: #2a1d10;
+      --ink-soft: #4a3520;
+      --ink-deep: #14100a;
+      --parchment: #ece2c8;
+      --parchment-light: #f4ead4;
+      --parchment-dark: #d4c8a4;
+      --brass: #8a6420;
+      --brass-bright: #b88e3a;
+      --brass-deep: #5e4515;
+      --burgundy: #5a1f1c;
+      --olive: #4a5240;
+      --olive-deep: #2b3128;
+      --slate: #33403c;
+      --muted: #6e5c40;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: url('parchment.jpg') repeat;
+      background-size: 1400px auto;
+      color: var(--ink);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    /* Film grain, matching the brunch page */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.06;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.45 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+
+    /* ─── DRAFT RIBBON — delete this element before launch ─── */
+    .draft-ribbon {
+      position: fixed; bottom: 16px; left: 16px; z-index: 200;
+      max-width: 320px;
+      background: var(--burgundy); color: var(--parchment-light);
+      font-size: 12px; line-height: 1.5;
+      padding: 12px 16px;
+      border: 1px solid var(--brass-bright);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+    .draft-ribbon strong { letter-spacing: 2px; }
+    .draft-ribbon button {
+      float: right; background: none; border: 0; color: inherit;
+      font-size: 16px; cursor: pointer; margin: -4px -6px 0 8px;
+    }
+    .tbd { background: rgba(184,142,58,0.28); border-bottom: 1px dashed var(--brass); padding: 0 2px; }
+
+    /* ─── TOP BAR ─── */
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 14px 32px;
+      background: rgba(20,16,10,0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(184,142,58,0.25);
+    }
+    .topbar-mark { display: inline-flex; line-height: 0; }
+    .topbar-mark img { height: 38px; width: auto; }
+    .topbar-nav { display: flex; gap: 26px; align-items: center; }
+    .topbar-nav a {
+      font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--parchment-dark); text-decoration: none;
+    }
+    .topbar-nav a:hover { color: var(--brass-bright); }
+    .topbar-cta {
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--brass-bright) !important;
+      padding: 9px 20px;
+      border: 1px solid var(--brass-bright);
+      transition: all 0.3s ease;
+    }
+    .topbar-cta:hover { background: var(--brass-bright); color: var(--ink-deep) !important; }
+    @media (max-width: 860px) {
+      .topbar { padding: 12px 16px; }
+      .topbar-nav a:not(.topbar-cta) { display: none; }
+    }
+
+    /* ─── SHARED TYPE ─── */
+    .eyebrow {
+      font-family: 'IM Fell English', serif; font-style: italic;
+      font-size: 13px; letter-spacing: 5px; text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 14px;
+    }
+    .h2 {
+      font-family: 'IM Fell English SC', serif; font-weight: 400;
+      font-size: clamp(32px, 4.6vw, 50px);
+      line-height: 1.08; letter-spacing: 2px;
+      color: var(--ink);
+      margin-bottom: 18px;
+    }
+    .h2 em { font-family: 'IM Fell English', serif; font-style: italic; color: var(--brass); letter-spacing: 0; }
+    .lede {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(19px, 2vw, 22px);
+      line-height: 1.55;
+      color: var(--ink-soft);
+      max-width: 640px;
+    }
+    .section { padding: 100px 24px; }
+    .wrap { max-width: 1160px; margin: 0 auto; }
+    .center { text-align: center; }
+    .center .lede { margin: 0 auto; }
+
+    .dark {
+      background: var(--ink-deep);
+      color: var(--parchment);
+      position: relative;
+    }
+    .dark .h2 { color: var(--parchment-light); }
+    .dark .h2 em, .dark .eyebrow { color: var(--brass-bright); }
+    .dark .lede { color: var(--parchment-dark); }
+
+    .wax-cta {
+      display: inline-block;
+      font-family: 'IM Fell English SC', serif;
+      font-size: 13px; letter-spacing: 4px; text-transform: uppercase;
+      text-decoration: none;
+      padding: 17px 38px;
+      color: var(--ink-deep);
+      background: linear-gradient(135deg, #d4a854 0%, #b88e3a 50%, #8a6420 100%);
+      border: 1px solid #8a6420;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.3);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .wax-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(184,142,58,0.4), inset 0 1px 0 rgba(255,255,255,0.4); }
+    .ghost-cta {
+      display: inline-block;
+      font-family: 'IM Fell English SC', serif;
+      font-size: 13px; letter-spacing: 4px; text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 32px;
+      color: var(--parchment-light);
+      border: 1px solid rgba(236,226,200,0.5);
+      transition: all 0.3s ease;
+    }
+    .ghost-cta:hover { border-color: var(--brass-bright); color: var(--brass-bright); }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      min-height: 100vh; min-height: 100dvh;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+      padding: 120px 24px 72px;
+      color: var(--parchment);
+    }
+    .hero-photo {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; z-index: 0;
+      animation: kenBurns 30s ease-in-out infinite alternate;
+    }
+    @keyframes kenBurns {
+      0%   { transform: scale(1.04); }
+      100% { transform: scale(1.14) translate(-1.5%, -1%); }
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background:
+        linear-gradient(to top, rgba(20,16,10,0.95) 0%, rgba(20,16,10,0.55) 45%, rgba(20,16,10,0.35) 100%);
+    }
+    .hero-inner { position: relative; z-index: 2; max-width: 1160px; margin: 0 auto; width: 100%; }
+    .hero-season {
+      display: inline-block;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--ink-deep); background: var(--brass-bright);
+      padding: 6px 12px; margin-bottom: 22px;
+    }
+    .hero-title {
+      font-family: 'IM Fell English SC', serif; font-weight: 400;
+      font-size: clamp(44px, 7.4vw, 88px);
+      line-height: 0.98; letter-spacing: 3px;
+      color: var(--parchment-light);
+      max-width: 820px;
+      margin-bottom: 22px;
+    }
+    .hero-title em { font-family: 'IM Fell English', serif; font-style: italic; color: var(--brass-bright); letter-spacing: 0; }
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(19px, 2.2vw, 24px);
+      line-height: 1.5; color: var(--parchment);
+      max-width: 600px; margin-bottom: 34px;
+    }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 54px; }
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-top: 1px solid rgba(184,142,58,0.4);
+      max-width: 880px;
+    }
+    .hero-stat { padding: 20px 20px 0 0; }
+    .hero-stat b {
+      display: block;
+      font-family: 'IM Fell English SC', serif; font-weight: 400;
+      font-size: clamp(26px, 3.4vw, 38px); color: var(--brass-bright); line-height: 1.1;
+    }
+    .hero-stat span { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--parchment-dark); }
+    @media (max-width: 640px) {
+      .hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-stat { padding-bottom: 12px; }
+    }
+
+    /* ─── PROMISES STRIP ─── */
+    .promises {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0;
+      border-top: 1px solid var(--brass); border-bottom: 1px solid var(--brass);
+      margin-top: 50px;
+    }
+    .promise { padding: 30px 26px; border-right: 1px solid rgba(138,100,32,0.35); }
+    .promise:last-child { border-right: 0; }
+    .promise-num { font-family: 'IM Fell English', serif; font-style: italic; color: var(--brass); font-size: 15px; }
+    .promise h3 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 600;
+      font-size: 22px; line-height: 1.2; margin: 6px 0 10px; color: var(--ink);
+    }
+    .promise p { font-size: 14px; color: var(--ink-soft); }
+    @media (max-width: 900px) {
+      .promises { grid-template-columns: 1fr 1fr; }
+      .promise:nth-child(2) { border-right: 0; }
+      .promise:nth-child(-n+2) { border-bottom: 1px solid rgba(138,100,32,0.35); }
+    }
+    @media (max-width: 560px) {
+      .promises { grid-template-columns: 1fr; }
+      .promise { border-right: 0; border-bottom: 1px solid rgba(138,100,32,0.35); }
+      .promise:last-child { border-bottom: 0; }
+    }
+
+    /* ─── COMPOSER (instant quote) ─── */
+    .composer {
+      display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px;
+      margin-top: 50px; align-items: start;
+    }
+    @media (max-width: 920px) { .composer { grid-template-columns: 1fr; } }
+    .step { padding: 26px 0; border-top: 1px solid rgba(184,142,58,0.3); }
+    .step:first-child { border-top: 0; padding-top: 0; }
+    .step-label {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--brass-bright);
+      margin-bottom: 14px;
+    }
+    .step-label output { font-family: 'IM Fell English SC', serif; font-size: 22px; letter-spacing: 1px; color: var(--parchment-light); text-transform: none; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip {
+      font: inherit; font-size: 14px;
+      background: transparent; color: var(--parchment);
+      border: 1px solid rgba(236,226,200,0.3);
+      padding: 10px 16px; cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+    .chip:hover { border-color: var(--brass-bright); }
+    .chip[aria-pressed="true"] { background: var(--brass-bright); border-color: var(--brass-bright); color: var(--ink-deep); }
+    .chip small { display: block; font-size: 11px; opacity: 0.75; margin-top: 2px; }
+    .chip:disabled { opacity: 0.3; cursor: not-allowed; }
+    .tier-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .tier-grid .chip { padding: 14px 16px; }
+    .tier-grid .chip b { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 600; display: block; }
+    @media (max-width: 480px) { .tier-grid { grid-template-columns: 1fr; } }
+
+    /* Calendar */
+    .cal { border: 1px solid rgba(236,226,200,0.25); padding: 16px; max-width: 440px; }
+    .cal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .cal-head b { font-family: 'IM Fell English SC', serif; font-weight: 400; font-size: 21px; color: var(--parchment-light); letter-spacing: 1px; }
+    .cal-nav { background: none; border: 1px solid rgba(236,226,200,0.3); color: var(--parchment); width: 34px; height: 34px; cursor: pointer; font-size: 16px; }
+    .cal-nav:hover:not(:disabled) { border-color: var(--brass-bright); color: var(--brass-bright); }
+    .cal-nav:disabled { opacity: 0.25; cursor: not-allowed; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+    .cal-dow { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--parchment-dark); opacity: 0.7; text-align: center; padding: 4px 0; }
+    .cal-day {
+      font: inherit; font-size: 14px; font-variant-numeric: tabular-nums;
+      aspect-ratio: 1 / 1; min-height: 36px;
+      background: transparent; color: var(--parchment); border: 1px solid transparent;
+      cursor: pointer; position: relative;
+    }
+    .cal-day:hover:not(:disabled) { border-color: var(--brass-bright); }
+    .cal-day.season { background: rgba(74,82,64,0.55); }
+    .cal-day.peak::after { content: ''; position: absolute; top: 5px; right: 5px; width: 5px; height: 5px; border-radius: 50%; background: var(--brass-bright); }
+    .cal-day[aria-pressed="true"] { background: var(--brass-bright); color: var(--ink-deep); }
+    .cal-day[aria-pressed="true"]::after { background: var(--ink-deep); }
+    .cal-day:disabled { opacity: 0.22; cursor: not-allowed; }
+    .cal-legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 12px; font-size: 11px; color: var(--parchment-dark); }
+    .cal-legend i { display: inline-block; width: 12px; height: 12px; vertical-align: -1px; margin-right: 6px; }
+    .cal-legend .l-season { background: rgba(74,82,64,0.9); }
+    .cal-legend .l-peak { width: 6px; height: 6px; border-radius: 50%; background: var(--brass-bright); vertical-align: 1px; }
+    .cal-picked { margin-top: 12px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: var(--parchment-light); }
+
+    input[type="range"] { width: 100%; accent-color: var(--brass-bright); height: 28px; }
+    .range-ends { display: flex; justify-content: space-between; font-size: 11px; color: var(--parchment-dark); opacity: 0.7; }
+
+    .receipt {
+      background: var(--parchment-light);
+      color: var(--ink);
+      padding: 34px 30px 30px;
+      position: sticky; top: 90px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+      border-top: 4px solid var(--brass-bright);
+    }
+    .receipt-head { font-family: 'IM Fell English SC', serif; font-size: 24px; letter-spacing: 2px; }
+    .receipt-space { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: var(--ink-soft); margin-bottom: 18px; }
+    .receipt-lines { list-style: none; border-top: 1px dashed rgba(42,29,16,0.3); }
+    .receipt-lines li {
+      display: flex; justify-content: space-between; gap: 14px;
+      padding: 9px 0; font-size: 14px;
+      border-bottom: 1px dashed rgba(42,29,16,0.18);
+    }
+    .receipt-lines li span:last-child { font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .receipt-lines li.muted { color: var(--muted); font-size: 13px; }
+    .receipt-total { display: flex; justify-content: space-between; align-items: baseline; margin: 18px 0 4px; }
+    .receipt-total span:first-child { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+    .receipt-total b { font-family: 'IM Fell English SC', serif; font-weight: 400; font-size: 40px; line-height: 1; font-variant-numeric: tabular-nums; }
+    .receipt-pp { text-align: right; font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+    .receipt-note { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: var(--ink-soft); margin: 16px 0 20px; line-height: 1.45; }
+    .receipt .wax-cta { width: 100%; text-align: center; }
+    .receipt-warn { font-size: 13px; color: var(--burgundy); margin-top: 10px; display: none; }
+
+    /* ─── SPACES ─── */
+    .spaces { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 50px; }
+    @media (max-width: 960px) { .spaces { grid-template-columns: 1fr; max-width: 620px; margin-left: auto; margin-right: auto; } }
+    .space { background: var(--parchment-light); box-shadow: 0 14px 34px rgba(0,0,0,0.14); display: flex; flex-direction: column; }
+    .space-photo { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+    .space-body { padding: 26px 26px 30px; display: flex; flex-direction: column; flex: 1; }
+    .space h3 { font-family: 'IM Fell English SC', serif; font-weight: 400; font-size: 27px; line-height: 1.1; margin-bottom: 8px; }
+    .space-desc { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--ink-soft); line-height: 1.45; margin-bottom: 18px; }
+    .space-cap { display: flex; gap: 22px; margin-bottom: 18px; }
+    .space-cap div b { display: block; font-family: 'IM Fell English SC', serif; font-weight: 400; font-size: 30px; line-height: 1; color: var(--brass); }
+    .space-cap div span { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+    .space-prices { list-style: none; margin-top: auto; border-top: 1px solid rgba(138,100,32,0.3); }
+    .space-prices li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(138,100,32,0.18); font-size: 14px; }
+    .space-prices li b { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 600; white-space: nowrap; }
+    .space-foot { font-size: 12px; color: var(--muted); margin-top: 12px; }
+    .spaces-note { text-align: center; margin-top: 30px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: var(--ink-soft); }
+
+    /* ─── HOLIDAY ─── */
+    .holiday { background: var(--olive-deep); color: var(--parchment); }
+    .holiday .h2 { color: var(--parchment-light); }
+    .holiday .h2 em, .holiday .eyebrow { color: var(--brass-bright); }
+    .holiday .lede { color: var(--parchment-dark); }
+    .holiday-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 60px; align-items: center; }
+    @media (max-width: 900px) { .holiday-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .holiday-dates {
+      display: flex; gap: 18px; align-items: center; margin: 26px 0 30px;
+      font-family: 'IM Fell English SC', serif; font-size: clamp(24px, 3vw, 32px); color: var(--parchment-light);
+    }
+    .holiday-dates i { flex: 0 0 40px; height: 1px; background: var(--brass-bright); }
+    .holiday-urgency {
+      border-left: 2px solid var(--brass-bright);
+      padding: 4px 0 4px 18px; margin-bottom: 30px;
+      font-size: 15px; color: var(--parchment);
+    }
+    .menu-card {
+      background: var(--parchment-light); color: var(--ink);
+      padding: 44px 36px 38px; text-align: center;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+      position: relative;
+    }
+    .menu-card::before {
+      content: ''; position: absolute; inset: 10px;
+      border: 1px solid rgba(138,100,32,0.45); pointer-events: none;
+    }
+    .menu-card-title { font-family: 'IM Fell English SC', serif; font-size: 30px; letter-spacing: 2px; line-height: 1.1; }
+    .menu-card-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; color: var(--muted); margin-bottom: 22px; }
+    .course { padding: 12px 0; }
+    .course-n { font-family: 'IM Fell English', serif; font-style: italic; color: var(--brass); font-size: 16px; }
+    .course-dish { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 17px; letter-spacing: 1.5px; text-transform: uppercase; }
+    .course-detail { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--ink-soft); line-height: 1.4; }
+    .menu-card-foot { margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(138,100,32,0.35); font-size: 13px; color: var(--muted); }
+
+    /* ─── PACKAGES ─── */
+    .packages { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 50px; }
+    @media (max-width: 960px) { .packages { grid-template-columns: 1fr; max-width: 620px; margin-left: auto; margin-right: auto; } }
+    .pkg { background: var(--parchment-light); padding: 36px 30px; box-shadow: 0 14px 34px rgba(0,0,0,0.12); position: relative; display: flex; flex-direction: column; }
+    .pkg.featured { background: var(--ink-deep); color: var(--parchment); }
+    .pkg-flag {
+      position: absolute; top: -12px; left: 30px;
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      background: var(--brass-bright); color: var(--ink-deep); padding: 5px 10px;
+    }
+    .pkg-style { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--brass); }
+    .pkg.featured .pkg-style { color: var(--brass-bright); }
+    .pkg h3 { font-family: 'IM Fell English SC', serif; font-weight: 400; font-size: 30px; margin: 6px 0 12px; line-height: 1.05; }
+    .pkg-price { font-family: 'IM Fell English SC', serif; font-size: 44px; line-height: 1; color: var(--brass); }
+    .pkg.featured .pkg-price { color: var(--brass-bright); }
+    .pkg-price small { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 1px; color: var(--muted); }
+    .pkg.featured .pkg-price small { color: var(--parchment-dark); }
+    .pkg-desc { font-family: 'Cormorant Garamond', serif; font-size: 18px; line-height: 1.45; margin: 16px 0 18px; color: var(--ink-soft); }
+    .pkg.featured .pkg-desc { color: var(--parchment-dark); }
+    .pkg ul { list-style: none; font-size: 14px; }
+    .pkg li { padding: 8px 0 8px 22px; border-top: 1px solid rgba(138,100,32,0.2); position: relative; }
+    .pkg li::before { content: '§'; position: absolute; left: 0; color: var(--brass); font-family: 'IM Fell English', serif; }
+    .pkg-best { margin-top: auto; padding-top: 18px; font-size: 12px; color: var(--muted); }
+    .pkg.featured .pkg-best { color: var(--parchment-dark); }
+
+    .bev {
+      margin-top: 44px;
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 40px; align-items: center;
+      border-top: 1px solid var(--brass); border-bottom: 1px solid var(--brass);
+      padding: 34px 0;
+    }
+    @media (max-width: 820px) { .bev { grid-template-columns: 1fr; gap: 20px; } }
+    .bev h3 { font-family: 'IM Fell English SC', serif; font-weight: 400; font-size: 30px; line-height: 1.1; }
+    .bev-opts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    @media (max-width: 560px) { .bev-opts { grid-template-columns: 1fr; } }
+    .bev-opts b { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; display: block; }
+    .bev-opts p { font-size: 14px; color: var(--ink-soft); }
+
+    /* ─── FOUR MOMENTS ─── */
+    .moments { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 50px; }
+    @media (max-width: 960px) { .moments { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .moments { grid-template-columns: 1fr; } }
+    .moment { border-top: 1px solid var(--brass-bright); padding-top: 20px; }
+    .moment-n { font-family: 'IM Fell English', serif; font-style: italic; color: var(--brass-bright); font-size: 15px; letter-spacing: 2px; }
+    .moment h3 { font-family: 'IM Fell English SC', serif; font-weight: 400; font-size: 26px; color: var(--parchment-light); margin: 6px 0 10px; line-height: 1.1; }
+    .moment p { font-family: 'Cormorant Garamond', serif; font-size: 18px; line-height: 1.5; color: var(--parchment-dark); }
+
+    /* ─── GALLERY ─── */
+    .gallery {
+      display: grid; gap: 14px;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-auto-rows: 180px;
+      margin-top: 50px;
+    }
+    .gallery figure { position: relative; overflow: hidden; }
+    .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+    .gallery figure:hover img { transform: scale(1.04); }
+    .gallery figcaption {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 30px 16px 12px;
+      background: linear-gradient(to top, rgba(20,16,10,0.85), transparent);
+      color: var(--parchment); font-family: 'IM Fell English', serif; font-style: italic; font-size: 15px;
+    }
+    .g1 { grid-column: span 4; grid-row: span 2; }
+    .g2 { grid-column: span 2; grid-row: span 2; }
+    .g3 { grid-column: span 2; grid-row: span 2; }
+    .g4 { grid-column: span 4; grid-row: span 2; }
+    @media (max-width: 720px) {
+      .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 150px; }
+      .g1, .g4 { grid-column: span 2; }
+      .g2, .g3 { grid-column: span 1; }
+    }
+
+    /* ─── TERMS ─── */
+    .terms { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; margin-top: 44px; }
+    @media (max-width: 820px) { .terms { grid-template-columns: 1fr; } }
+    .terms h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 21px; margin-bottom: 8px; }
+    .terms p { font-size: 14px; color: var(--ink-soft); }
+
+    /* ─── INQUIRY ─── */
+    .inquiry-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 60px; align-items: start; }
+    @media (max-width: 900px) { .inquiry-grid { grid-template-columns: 1fr; gap: 36px; } }
+    .captain {
+      display: flex; gap: 18px; align-items: center;
+      margin-top: 30px; padding: 22px; border: 1px solid rgba(184,142,58,0.4);
+    }
+    .captain-seal {
+      flex: 0 0 64px; height: 64px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #d4a854, #8a6420 70%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'IM Fell English SC', serif; font-size: 28px; color: var(--ink-deep);
+      box-shadow: inset 0 2px 4px rgba(255,255,255,0.3), 0 4px 10px rgba(0,0,0,0.4);
+    }
+    .captain b { font-family: 'Cormorant Garamond', serif; font-size: 22px; display: block; color: var(--parchment-light); }
+    .captain span { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--brass-bright); }
+    .captain a { display: block; font-size: 14px; color: var(--parchment); text-decoration: none; margin-top: 4px; }
+    .captain a:hover { color: var(--brass-bright); }
+
+    form.inquiry { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; }
+    form.inquiry .full { grid-column: 1 / -1; }
+    @media (max-width: 560px) { form.inquiry { grid-template-columns: 1fr; } }
+    form.inquiry label { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--brass-bright); display: block; margin-bottom: 6px; }
+    form.inquiry input, form.inquiry select, form.inquiry textarea {
+      width: 100%;
+      font: inherit; font-size: 16px;
+      color: var(--parchment-light);
+      background: rgba(236,226,200,0.06);
+      border: 1px solid rgba(236,226,200,0.25);
+      padding: 13px 14px;
+      border-radius: 0;
+    }
+    form.inquiry select option { color: var(--ink); }
+    form.inquiry input:focus, form.inquiry select:focus, form.inquiry textarea:focus { outline: none; border-color: var(--brass-bright); }
+    form.inquiry textarea { min-height: 110px; resize: vertical; }
+    .form-fine { font-size: 12px; color: var(--parchment-dark); opacity: 0.8; }
+    .form-thanks { display: none; padding: 40px 30px; border: 1px solid var(--brass-bright); text-align: center; }
+    .form-thanks h3 { font-family: 'IM Fell English SC', serif; font-weight: 400; font-size: 32px; color: var(--parchment-light); margin-bottom: 10px; }
+    .form-thanks p { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--parchment-dark); }
+    .hidden { display: none; }
+
+    /* ─── INFO / FOOTER (matches brunch page) ─── */
+    .info { background: var(--ink-deep); color: var(--parchment-dark); padding: 70px 24px 50px; border-top: 1px solid rgba(184,142,58,0.25); }
+    .info-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; text-align: center; }
+    @media (max-width: 720px) { .info-grid { grid-template-columns: 1fr; gap: 28px; } }
+    .info-label { font-family: 'IM Fell English', serif; font-style: italic; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: var(--brass-bright); margin-bottom: 10px; }
+    .info a { color: var(--parchment); text-decoration: none; }
+    .info a:hover { color: var(--brass-bright); }
+    .policy { background: var(--ink-deep); color: var(--muted); text-align: center; font-size: 12px; letter-spacing: 1px; padding: 0 24px 30px; }
+    .footer { background: #0c0906; color: var(--muted); text-align: center; padding: 26px 24px; font-size: 12px; }
+    .footer-mark { font-family: 'IM Fell English SC', serif; font-size: 18px; letter-spacing: 4px; color: var(--brass-bright); margin-bottom: 4px; }
+    .footer a { color: var(--parchment-dark); }
+
+    @media (max-width: 600px) {
+      .section { padding: 72px 16px; }
+      .hero { padding: 110px 16px 48px; }
+      .receipt { padding: 28px 20px 24px; }
+      .menu-card { padding: 38px 22px 32px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-photo { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- DRAFT RIBBON: remove before launch -->
+  <div class="draft-ribbon" id="draftRibbon">
+    <button type="button" aria-label="Dismiss" onclick="this.parentNode.remove()">&times;</button>
+    <strong>DRAFT</strong> &mdash; highlighted <span class="tbd">figures</span> are placeholders pending confirmation (package prices, service charge, deposit, hosted bar).
+  </div>
+
+  <header class="topbar">
+    <a href="https://www.vintagebookshawaii.com/" class="topbar-mark" aria-label="Vintage Books"><img src="vb-logo-cream.png" alt="Vintage Books"></a>
+    <nav class="topbar-nav">
+      <a href="#compose">Instant Quote</a>
+      <a href="#spaces">Spaces</a>
+      <a href="#holiday">Holiday</a>
+      <a href="#packages">Menus</a>
+      <a href="#inquire" class="topbar-cta">Request a Proposal</a>
+    </nav>
+  </header>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <img class="hero-photo" src="pe-dining-room.jpg" alt="The Vintage Books dining room under its pressed-tin ceiling, lamps lit and tables set">
+    <div class="hero-inner">
+      <span class="hero-season">Holiday parties &middot; Nov 3 &ndash; Jan 11 &middot; Now booking</span>
+      <h1 class="hero-title">Where every gathering becomes <em>a story.</em></h1>
+      <p class="hero-sub">A hidden literary speakeasy behind the bookshelf in Kaimuki. Take the whole house, or close the door on the Private Collection Lounge. The price you see is the price you pay.</p>
+      <div class="hero-ctas">
+        <a href="#compose" class="wax-cta">Price your evening</a>
+        <a href="#spaces" class="ghost-cta">See the spaces</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>20&ndash;75</b><span>Guests</span></div>
+        <div class="hero-stat"><b>65</b><span>Seated</span></div>
+        <div class="hero-stat"><b>2</b><span>Private spaces</span></div>
+        <div class="hero-stat"><b>2 hrs</b><span>To your proposal</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROMISES ─── -->
+  <section class="section">
+    <div class="wrap center">
+      <p class="eyebrow">Our promise to planners</p>
+      <h2 class="h2">Planning a party should not <em>be a second job.</em></h2>
+      <p class="lede">If you're emailing three venues at once, you'll know where we stand by lunchtime. Here's what you can count on.</p>
+    </div>
+    <div class="wrap promises">
+      <div class="promise">
+        <span class="promise-num">i.</span>
+        <h3>A full proposal in two hours</h3>
+        <p>Menu, space, all-in price and your date held for 72 hours, sent within two business hours. Not an auto-reply, and not a request for a call.</p>
+      </div>
+      <div class="promise">
+        <span class="promise-num">ii.</span>
+        <h3>The all-in price, up front</h3>
+        <p>Service charge and Hawai&lsquo;i GET are in every quote. No line items appear at the end.</p>
+      </div>
+      <div class="promise">
+        <span class="promise-num">iii.</span>
+        <h3>One person, start to finish</h3>
+        <p>Sherene handles your event from first email to last toast. You'll never explain it twice.</p>
+      </div>
+      <div class="promise">
+        <span class="promise-num">iv.</span>
+        <h3>Dietary needs, handled</h3>
+        <p>Vegetarian, gluten-free and allergies: tell us once on the form and we'll confirm it on the menu.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COMPOSER ─── -->
+  <section class="section dark" id="compose">
+    <div class="wrap">
+      <p class="eyebrow">Instant estimate</p>
+      <h2 class="h2">A real number in <em>thirty seconds.</em></h2>
+      <p class="lede">Choose a few details and see the all-in total, including service and tax. Sherene confirms it with your full proposal.</p>
+
+      <div class="composer">
+        <div>
+          <div class="step">
+            <div class="step-label">01 &middot; Occasion</div>
+            <div class="chips" data-group="occasion">
+              <button type="button" class="chip" aria-pressed="true" data-val="Holiday party">Holiday party</button>
+              <button type="button" class="chip" aria-pressed="false" data-val="Team dinner">Team dinner</button>
+              <button type="button" class="chip" aria-pressed="false" data-val="Client entertaining">Client entertaining</button>
+              <button type="button" class="chip" aria-pressed="false" data-val="Celebration">Birthday / celebration</button>
+              <button type="button" class="chip" aria-pressed="false" data-val="Rehearsal dinner">Rehearsal dinner</button>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-label">02 &middot; Pick a date</div>
+            <div class="cal" id="cal">
+              <div class="cal-head">
+                <button type="button" class="cal-nav" id="calPrev" aria-label="Previous month">&lsaquo;</button>
+                <b id="calMonth"></b>
+                <button type="button" class="cal-nav" id="calNext" aria-label="Next month">&rsaquo;</button>
+              </div>
+              <div class="cal-grid" id="calGrid" role="grid"></div>
+              <div class="cal-legend">
+                <span><i class="l-season"></i>Holiday season &middot; Nov 3 &ndash; Jan 11</span>
+                <span><i class="l-peak"></i>Most requested nights</span>
+              </div>
+              <div class="cal-picked" id="calPicked">Choose a date to see your estimate for that day.</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-label">03 &middot; Time of day <span id="whenHint" style="letter-spacing:1px;text-transform:none;color:var(--parchment-dark);font-size:12px"></span></div>
+            <div class="chips" data-group="when">
+              <button type="button" class="chip" aria-pressed="true" data-val="evening">Evening<small>after 5pm</small></button>
+              <button type="button" class="chip" aria-pressed="false" data-val="dayWeekend">Weekend daytime<small>Sat &amp; Sun</small></button>
+              <button type="button" class="chip" aria-pressed="false" data-val="dayWeekday">Weekday daytime<small>Mon &ndash; Fri</small></button>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-label">04 &middot; Guests <output id="guestOut">40</output></div>
+            <input type="range" id="guests" min="10" max="75" step="1" value="40" aria-label="Number of guests">
+            <div class="range-ends"><span>10</span><span>75</span></div>
+            <div class="chips" data-group="format" style="margin-top:14px">
+              <button type="button" class="chip" aria-pressed="true" data-val="seated">Seated dinner</button>
+              <button type="button" class="chip" aria-pressed="false" data-val="standing">Standing reception</button>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-label">05 &middot; Space</div>
+            <div class="chips" data-group="space">
+              <button type="button" class="chip" aria-pressed="false" data-val="lounge">Private Collection Lounge<small>up to 20 guests</small></button>
+              <button type="button" class="chip" aria-pressed="true" data-val="buyout">Full venue buyout<small>up to 65 seated / 75 standing</small></button>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-label">06 &middot; Menu</div>
+            <div class="chips tier-grid" data-group="tier">
+              <button type="button" class="chip" aria-pressed="false" data-val="passed"><b>Passed</b>from $<span data-price="passed"></span> / guest</button>
+              <button type="button" class="chip" aria-pressed="false" data-val="family"><b>Family Style</b>from $<span data-price="family"></span> / guest</button>
+              <button type="button" class="chip" aria-pressed="true" data-val="holiday"><b>Holiday Five-Course</b>$<span data-price="holiday"></span> / guest</button>
+              <button type="button" class="chip" aria-pressed="false" data-val="custom"><b>Chef&rsquo;s Custom</b>up to $<span data-price="custom"></span> / guest</button>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-label">07 &middot; Drinks</div>
+            <div class="chips" data-group="bev">
+              <button type="button" class="chip" aria-pressed="true" data-val="nonhosted">Non-hosted<small>guests order their own</small></button>
+              <button type="button" class="chip" aria-pressed="false" data-val="signature">Signature cocktail on arrival<small>+$<span data-price="signature"></span> / guest</small></button>
+              <button type="button" class="chip" aria-pressed="false" data-val="hosted">Hosted bar, 2 hours<small>+$<span data-price="hosted"></span> / guest</small></button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="receipt" aria-live="polite">
+          <div class="receipt-head">Your evening</div>
+          <div class="receipt-space" id="rSpace">Full venue buyout &middot; Evening</div>
+          <ul class="receipt-lines" id="rLines"></ul>
+          <div class="receipt-total"><span>All-in estimate</span><b id="rTotal">$0</b></div>
+          <div class="receipt-pp" id="rPP"></div>
+          <p class="receipt-warn" id="rWarn"></p>
+          <p class="receipt-note">The quote you see is the contract you sign. Sherene confirms it within two business hours.</p>
+          <a href="#inquire" class="wax-cta" id="reserveBtn">Hold this date</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SPACES ─── -->
+  <section class="section" id="spaces">
+    <div class="wrap center">
+      <p class="eyebrow">The spaces</p>
+      <h2 class="h2">Close one door, <em>or all of them.</em></h2>
+      <p class="lede">Pressed-tin ceilings, tufted leather, green panelling and a bar lined with books. Every price below is published. None are hidden behind a form.</p>
+    </div>
+    <div class="wrap spaces">
+      <article class="space">
+        <img class="space-photo" src="pe-private-collection.jpg" alt="Guests gathered in the Private Collection Lounge beneath walls papered in book pages" loading="lazy">
+        <div class="space-body">
+          <h3>The Private Collection Lounge</h3>
+          <p class="space-desc">Walls papered in book pages, velvet banquettes and low lamps. Ideal for birthdays, team drinks and a small dinner that feels like a secret.</p>
+          <div class="space-cap">
+            <div><b>20</b><span>Seated or standing</span></div>
+          </div>
+          <ul class="space-prices">
+            <li><span>Lounge minimum</span><b>$800</b></li>
+          </ul>
+          <p class="space-foot">Food &amp; beverage minimum, before service &amp; tax.</p>
+        </div>
+      </article>
+
+      <article class="space">
+        <img class="space-photo" src="pe-lounge.jpg" alt="Leather sofas, floral wallpaper and brass floor lamps in the Vintage Books lounge during the day" loading="lazy">
+        <div class="space-body">
+          <h3>Daytime Full Venue Buyout</h3>
+          <p class="space-desc">The whole house by daylight: dining room, lounge and bar. Made for showers, luncheons, off-sites and long weekend celebrations.</p>
+          <div class="space-cap">
+            <div><b>65</b><span>Seated</span></div>
+            <div><b>75</b><span>Standing</span></div>
+          </div>
+          <ul class="space-prices">
+            <li><span>Weekday daytime</span><b>$1,500</b></li>
+            <li><span>Weekend daytime</span><b>$2,500</b></li>
+          </ul>
+          <p class="space-foot">Food &amp; beverage minimum, before service &amp; tax.</p>
+        </div>
+      </article>
+
+      <article class="space">
+        <img class="space-photo" src="pe-bar.jpg" alt="The backlit Vintage Books bar with spirits and books reflected in the bar top" loading="lazy">
+        <div class="space-body">
+          <h3>Evening Full Venue Buyout</h3>
+          <p class="space-desc">After 5pm the speakeasy is yours. The bookshelf door stays shut, the lamps go low and the bar pours for your guests only.</p>
+          <div class="space-cap">
+            <div><b>65</b><span>Seated</span></div>
+            <div><b>75</b><span>Standing</span></div>
+          </div>
+          <ul class="space-prices">
+            <li><span>Evening buyout</span><b>$6,500</b></li>
+          </ul>
+          <p class="space-foot">Food &amp; beverage minimum, before service &amp; tax.</p>
+        </div>
+      </article>
+    </div>
+    <p class="spaces-note">Minimums count toward food and drink, so the money goes to your guests, not a room fee.</p>
+  </section>
+
+  <!-- ─── HOLIDAY ─── -->
+  <section class="section holiday" id="holiday">
+    <div class="wrap holiday-grid">
+      <div>
+        <p class="eyebrow">The holiday season</p>
+        <h2 class="h2">December is decided <em>now.</em></h2>
+        <p class="lede">Most company holiday parties are booked eight to twelve weeks out. The best Thursday and Friday nights in December usually go first.</p>
+        <div class="holiday-dates">November 3 <i></i> January 11</div>
+        <p class="holiday-urgency">Private buyouts for 20&ndash;65 guests. The room is dressed for the season with hanging stars, garland and a lit tree, plus a menu of holiday cocktails.</p>
+        <a href="#compose" class="wax-cta">Price a holiday party</a>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-title">Holiday Party</div>
+        <div class="menu-card-sub">A five-course evening</div>
+        <div class="course">
+          <div class="course-n">First Course</div>
+          <div class="course-dish">Chef&rsquo;s Raw Selection of Premium Seafood</div>
+        </div>
+        <div class="course">
+          <div class="course-n">Second Course</div>
+          <div class="course-dish">Grilled Marinated Prawn Salad</div>
+          <div class="course-detail">Local greens, citrus vinaigrette, Thai basil, Burmese trail mix</div>
+        </div>
+        <div class="course">
+          <div class="course-n">Third Course</div>
+          <div class="course-dish">Lobster &amp; Lemon Ricotta Ravioli</div>
+          <div class="course-detail">Lobster uni butter sauce, white truffle oil, Pecorino Romano, tarragon</div>
+        </div>
+        <div class="course">
+          <div class="course-n">Fourth Course</div>
+          <div class="course-dish">Grilled Local Fresh Catch</div>
+        </div>
+        <div class="course">
+          <div class="course-n">Fifth Course</div>
+          <div class="course-dish">Braised Short Rib</div>
+          <div class="course-detail">Roasted root vegetables, truffled pommes pur&eacute;e, peppercorn red wine veal jus</div>
+        </div>
+        <div class="course">
+          <div class="course-n">Dessert</div>
+          <div class="course-dish">Chef&rsquo;s Daily Selection</div>
+        </div>
+        <div class="menu-card-foot"><span class="tbd">$125</span> per guest &middot; custom menus available</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PACKAGES ─── -->
+  <section class="section" id="packages">
+    <div class="wrap center">
+      <p class="eyebrow">Menus &amp; pricing</p>
+      <h2 class="h2">From $60 to $175 a guest, <em>no guesswork.</em></h2>
+      <p class="lede">Every menu is built from local ingredients and served your way: passed, family style or plated. Each price below is per guest, before service and tax.</p>
+    </div>
+    <div class="wrap packages">
+      <article class="pkg">
+        <span class="pkg-style">Passed</span>
+        <h3>The Reception</h3>
+        <div class="pkg-price">$60 <small>/ guest</small></div>
+        <p class="pkg-desc">Chef&rsquo;s bites passed through the room while guests mingle, from the lounge to the bar.</p>
+        <ul>
+          <li>Rotating passed canap&eacute;s</li>
+          <li>Standing, cocktail-party flow</li>
+          <li>Up to 75 guests</li>
+          <li>Pairs well with a signature cocktail</li>
+        </ul>
+        <p class="pkg-best">Best for mixers, launches and after-work celebrations</p>
+      </article>
+
+      <article class="pkg featured">
+        <span class="pkg-flag">Holiday favorite</span>
+        <span class="pkg-style">Plated</span>
+        <h3>The Holiday Five-Course</h3>
+        <div class="pkg-price"><span class="tbd">$125</span> <small>/ guest</small></div>
+        <p class="pkg-desc">Raw seafood, prawn salad, lobster ravioli, local catch and braised short rib, then dessert.</p>
+        <ul>
+          <li>Five courses plus dessert</li>
+          <li>Seated for up to 65</li>
+          <li>Printed menus for the table</li>
+          <li>Dietary swaps confirmed in advance</li>
+        </ul>
+        <p class="pkg-best">Best for company holiday parties and client dinners</p>
+      </article>
+
+      <article class="pkg">
+        <span class="pkg-style">Family style &middot; Custom</span>
+        <h3>The Chef&rsquo;s Table</h3>
+        <div class="pkg-price"><span class="tbd">$95</span>&ndash;$175 <small>/ guest</small></div>
+        <p class="pkg-desc">Shared platters down long tables, or a menu written with the chef for your occasion.</p>
+        <ul>
+          <li>Family-style or fully custom</li>
+          <li>Menu planning call with the chef</li>
+          <li>Seated for up to 65</li>
+          <li>Local and seasonal ingredients</li>
+        </ul>
+        <p class="pkg-best">Best for rehearsal dinners, milestones and team dinners</p>
+      </article>
+    </div>
+
+    <div class="wrap bev">
+      <div>
+        <p class="eyebrow" style="margin-bottom:6px">Crafted beverages</p>
+        <h3>Signature cocktails, mocktails, beer, wine &amp; sparkling.</h3>
+      </div>
+      <div class="bev-opts">
+        <div><b>Non-hosted</b><p>Guests order and pay for their own drinks from our bar.</p></div>
+        <div><b>Signature cocktail</b><p>A cocktail on arrival for every guest, named for your event if you like. <span class="tbd">$18</span>/guest.</p></div>
+        <div><b>Hosted bar</b><p>An open bar for your guests, billed per person or on consumption. From <span class="tbd">$45</span>/guest.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOUR MOMENTS ─── -->
+  <section class="section dark">
+    <div class="wrap">
+      <p class="eyebrow">The evening, in four chapters</p>
+      <h2 class="h2">A great party is not a long dinner. <em>It&rsquo;s a short story.</em></h2>
+      <div class="moments">
+        <div class="moment">
+          <span class="moment-n">Chapter I &middot; Arrival</span>
+          <h3>The Secret Door</h3>
+          <p>Guests find the bookshelf, step through and have a drink in hand within ninety seconds. Your host is greeted by name.</p>
+        </div>
+        <div class="moment">
+          <span class="moment-n">Chapter II &middot; Dinner</span>
+          <h3>The Reveal</h3>
+          <p>The raw seafood course lands on the table and every phone comes out.</p>
+        </div>
+        <div class="moment">
+          <span class="moment-n">Chapter III &middot; The Peak</span>
+          <h3>The Toast</h3>
+          <p>The lamps dim, the room goes quiet and your host has the floor. This is the moment the year is remembered by.</p>
+        </div>
+        <div class="moment">
+          <span class="moment-n">Chapter IV &middot; Exit</span>
+          <h3>The Last Page</h3>
+          <p>Every guest leaves with a handwritten card. The back has a link to hold the same night next year.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── GALLERY ─── -->
+  <section class="section">
+    <div class="wrap center">
+      <p class="eyebrow">Inside Vintage Books</p>
+      <h2 class="h2">Behind the <em>bookshelf.</em></h2>
+    </div>
+    <div class="wrap gallery">
+      <figure class="g1"><img src="pe-dining-room.jpg" alt="Dining room with booths, leather chairs and a pressed-tin ceiling" loading="lazy"><figcaption>The dining room, set for dinner</figcaption></figure>
+      <figure class="g2"><img src="pe-parlor-nook.jpg" alt="Leather sofa and palm under a pressed-tin ceiling" loading="lazy"><figcaption>The parlor nook</figcaption></figure>
+      <figure class="g3"><img src="pe-private-collection.jpg" alt="Guests celebrating in the Private Collection Lounge" loading="lazy"><figcaption>A night in the Private Collection</figcaption></figure>
+      <figure class="g4"><img src="pe-lounge.jpg" alt="Lounge with tufted leather sofas, floral wallpaper and brass lamps" loading="lazy"><figcaption>The lounge, before the doors open</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ─── TERMS ─── -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">The fine print, in plain English</p>
+      <div class="terms">
+        <div>
+          <h3>Holding your date</h3>
+          <p>A <span class="tbd">25%</span> deposit secures your date. We'll hold a date for 72 hours while you get approval.</p>
+        </div>
+        <div>
+          <h3>What&rsquo;s included in the total</h3>
+          <p>Food, drinks, a <span class="tbd">20%</span> service charge and Hawai&lsquo;i GET (4.712%). If your total is under the space minimum, the difference is billed as unused minimum. Nothing else is added.</p>
+        </div>
+        <div>
+          <h3>Changing plans</h3>
+          <p>Move your deposit to a new date with <span class="tbd">14 days&rsquo;</span> notice. Final headcount is due <span class="tbd">5 days</span> before the event. Guests must be 21+ after 7pm.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── INQUIRY ─── -->
+  <section class="section dark" id="inquire">
+    <div class="wrap inquiry-grid">
+      <div>
+        <p class="eyebrow">Request a proposal</p>
+        <h2 class="h2">Tell us the story. <em>We&rsquo;ll write the evening.</em></h2>
+        <p class="lede">Send a few details and you'll get a complete proposal (menu, space and all-in price) within two business hours.</p>
+        <div class="captain">
+          <div class="captain-seal" aria-hidden="true">S</div>
+          <div>
+            <span>Your events contact</span>
+            <b>Sherene</b>
+            <a href="mailto:sherene@vintagebookshawaii.com">sherene@vintagebookshawaii.com</a>
+            <a href="tel:8087364917">808-736-4917</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- Submissions are emailed to Sherene via FormSubmit (works on GitHub Pages, no server needed) -->
+        <form class="inquiry" id="inquiryForm" action="https://formsubmit.co/sherene@vintagebookshawaii.com" method="POST">
+          <input type="hidden" name="_subject" value="New private event inquiry (website)">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <p class="hidden"><label>Don&rsquo;t fill this out: <input name="_honey" tabindex="-1" autocomplete="off"></label></p>
+          <input type="hidden" name="estimate" id="fEstimate">
+
+          <div><label for="fName">Full name</label><input id="fName" name="name" type="text" autocomplete="name" required></div>
+          <div><label for="fCompany">Company (optional)</label><input id="fCompany" name="company" type="text" autocomplete="organization"></div>
+          <div><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" required></div>
+          <div><label for="fPhone">Phone</label><input id="fPhone" name="phone" type="tel" autocomplete="tel" required></div>
+          <div><label for="fDate">Preferred date</label><input id="fDate" name="date" type="date" required></div>
+          <div><label for="fGuests">Guest count</label><input id="fGuests" name="guests" type="number" min="1" max="75" required></div>
+          <div>
+            <label for="fOccasion">Occasion</label>
+            <select id="fOccasion" name="occasion">
+              <option>Holiday party</option>
+              <option>Team dinner</option>
+              <option>Client entertaining</option>
+              <option>Celebration</option>
+              <option>Rehearsal dinner</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="fSpace">Space</label>
+            <select id="fSpace" name="space">
+              <option value="Evening Full Venue Buyout">Evening full venue buyout</option>
+              <option value="Weekend Daytime Buyout">Weekend daytime buyout</option>
+              <option value="Weekday Daytime Buyout">Weekday daytime buyout</option>
+              <option value="Private Collection Lounge">Private Collection Lounge</option>
+              <option value="Not sure yet">Not sure yet</option>
+            </select>
+          </div>
+          <div class="full"><label for="fDiet">Dietary needs</label><input id="fDiet" name="dietary" type="text" placeholder="e.g. 3 vegetarian, 1 shellfish allergy"></div>
+          <div class="full"><label for="fNotes">Tell us about the evening</label><textarea id="fNotes" name="notes" placeholder="The occasion, the feel you're after, anything we should know."></textarea></div>
+          <div class="full" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+            <button type="submit" class="wax-cta">Send my request</button>
+            <span class="form-fine">We'll reply within two business hours.</span>
+          </div>
+        </form>
+        <div class="form-thanks" id="formThanks">
+          <h3>Your request is in.</h3>
+          <p>Sherene will send your full proposal within two business hours. If it's urgent, call <a href="tel:8087364917">808-736-4917</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── INFO ─── -->
+  <section class="info">
+    <div class="info-grid">
+      <div>
+        <p class="info-label">Private Events</p>
+        <p><a href="mailto:sherene@vintagebookshawaii.com">sherene@vintagebookshawaii.com</a></p>
+        <p style="margin-top:6px;"><a href="tel:8087364917">808-736-4917</a></p>
+      </div>
+      <div>
+        <p class="info-label">Find Us</p>
+        <p><a href="https://maps.google.com/?q=3660+Waialae+Ave+Suite+101+Honolulu+HI+96816" target="_blank" rel="noopener">3660 Waialae Ave, Suite 101<br>Honolulu, HI 96816</a></p>
+      </div>
+      <div>
+        <p class="info-label">Stay in Touch</p>
+        <p><a href="https://www.instagram.com/vintagebookshawaii/" target="_blank" rel="noopener">@vintagebookshawaii</a></p>
+        <p style="margin-top:6px;"><a href="https://www.vintagebookshawaii.com/" target="_blank" rel="noopener">vintagebookshawaii.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="policy">Cashless policy in effect &nbsp;&middot;&nbsp; Guests must be 21+ after 7PM</div>
+
+  <footer class="footer">
+    <p class="footer-mark">Vintage Books</p>
+    <p>&copy; 2026 Vintage Books Hawaii &nbsp;&middot;&nbsp; <a href="https://www.vintagebookshawaii.com/">vintagebookshawaii.com</a></p>
+  </footer>
+
+  <script>
+    /* ──────────────────────────────────────────────
+       PRICING — every number on the estimator lives here.
+       Confirmed: space minimums, capacities, GET.
+       Placeholders (confirm): tier prices except $60 & $175,
+       signature/hosted bar, service charge, deposit.
+    ────────────────────────────────────────────── */
+    var PRICING = {
+      tiers:   { passed: 60, family: 95, holiday: 125, custom: 175 },
+      bev:     { nonhosted: 0, signature: 18, hosted: 45 },
+      spaces: {
+        lounge:     { name: 'Private Collection Lounge',   min: 800,  seated: 20, standing: 20 },
+        evening:    { name: 'Evening Full Venue Buyout',   min: 6500, seated: 65, standing: 75 },
+        dayWeekend: { name: 'Weekend Daytime Buyout',      min: 2500, seated: 65, standing: 75 },
+        dayWeekday: { name: 'Weekday Daytime Buyout',      min: 1500, seated: 65, standing: 75 }
+      },
+      serviceRate: 0.20,
+      taxRate: 0.04712,   // Hawai'i GET, O'ahu
+      depositRate: 0.25
+    };
+    var TIER_NAMES = { passed: 'Passed reception', family: 'Family style', holiday: 'Holiday five-course', custom: 'Chef’s custom' };
+    var BEV_NAMES  = { signature: 'Signature cocktail on arrival', hosted: 'Hosted bar, 2 hours' };
+
+    var state = { occasion: 'Holiday party', when: 'evening', format: 'seated', space: 'buyout', tier: 'holiday', bev: 'nonhosted', guests: 40 };
+
+    var $ = function (id) { return document.getElementById(id); };
+    var money = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
+
+    document.querySelectorAll('[data-price]').forEach(function (el) {
+      var k = el.getAttribute('data-price');
+      el.textContent = PRICING.tiers[k] != null ? PRICING.tiers[k] : PRICING.bev[k];
+    });
+
+    function spaceKey() { return state.space === 'lounge' ? 'lounge' : state.when; }
+
+    /* ─── Calendar ─── */
+    var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    var calView = new Date(today.getFullYear(), today.getMonth(), 1);
+    var calMin = new Date(calView), calMax = new Date(today.getFullYear() + 1, today.getMonth(), 1);
+    state.date = null;
+
+    function inSeason(d) {
+      // Holiday season: Nov 3 – Jan 11
+      var m = d.getMonth(), day = d.getDate();
+      return (m === 10 && day >= 3) || m === 11 || (m === 0 && day <= 11);
+    }
+    function isPeak(d) {
+      // Thu–Sat in December before Christmas
+      var w = d.getDay();
+      return d.getMonth() === 11 && d.getDate() <= 23 && (w === 4 || w === 5 || w === 6);
+    }
+    function isWeekend(d) { var w = d.getDay(); return w === 0 || w === 6; }
+    function iso(d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+
+    function renderCal() {
+      var y = calView.getFullYear(), m = calView.getMonth();
+      $('calMonth').textContent = MONTHS[m] + ' ' + y;
+      $('calPrev').disabled = calView <= calMin;
+      $('calNext').disabled = calView >= calMax;
+      var html = ['S','M','T','W','T','F','S'].map(function (d) { return '<div class="cal-dow">' + d + '</div>'; }).join('');
+      var first = new Date(y, m, 1).getDay(), n = new Date(y, m + 1, 0).getDate();
+      for (var i = 0; i < first; i++) html += '<div></div>';
+      for (var day = 1; day <= n; day++) {
+        var d = new Date(y, m, day);
+        var cls = 'cal-day' + (inSeason(d) ? ' season' : '') + (isPeak(d) ? ' peak' : '');
+        var sel = state.date && d.getTime() === state.date.getTime();
+        html += '<button type="button" class="' + cls + '" data-date="' + iso(d) + '" aria-pressed="' + (sel ? 'true' : 'false') + '"' +
+          (d <= today ? ' disabled' : '') + ' aria-label="' + DAYS[d.getDay()] + ', ' + MONTHS[m] + ' ' + day + '">' + day + '</button>';
+      }
+      $('calGrid').innerHTML = html;
+    }
+
+    function syncWhenToDate() {
+      var weekdayBtn = document.querySelector('[data-group="when"] [data-val="dayWeekday"]');
+      var weekendBtn = document.querySelector('[data-group="when"] [data-val="dayWeekend"]');
+      weekdayBtn.disabled = weekendBtn.disabled = false;
+      if (!state.date) return;
+      var we = isWeekend(state.date);
+      (we ? weekdayBtn : weekendBtn).disabled = true;
+      if (state.when !== 'evening') state.when = we ? 'dayWeekend' : 'dayWeekday';
+      document.querySelectorAll('[data-group="when"] .chip').forEach(function (c) {
+        c.setAttribute('aria-pressed', c.getAttribute('data-val') === state.when ? 'true' : 'false');
+      });
+    }
+
+    $('calGrid').addEventListener('click', function (e) {
+      var btn = e.target.closest('.cal-day');
+      if (!btn || btn.disabled) return;
+      var p = btn.getAttribute('data-date').split('-');
+      state.date = new Date(+p[0], +p[1] - 1, +p[2]);
+      syncWhenToDate();
+      renderCal();
+      render();
+    });
+    $('calPrev').addEventListener('click', function () { calView.setMonth(calView.getMonth() - 1); renderCal(); });
+    $('calNext').addEventListener('click', function () { calView.setMonth(calView.getMonth() + 1); renderCal(); });
+
+    function render() {
+      var sp = PRICING.spaces[spaceKey()];
+      var cap = sp[state.format];
+      var g = state.guests;
+
+      // Lounge only makes sense up to 20 guests
+      var loungeBtn = document.querySelector('[data-group="space"] [data-val="lounge"]');
+      loungeBtn.disabled = g > PRICING.spaces.lounge.standing;
+
+      var food = PRICING.tiers[state.tier] * g;
+      var drinks = PRICING.bev[state.bev] * g;
+      var fb = food + drinks;
+      var shortfall = Math.max(0, sp.min - fb);
+      var subtotal = fb + shortfall;
+      var service = subtotal * PRICING.serviceRate;
+      var tax = (subtotal + service) * PRICING.taxRate;
+      var total = subtotal + service + tax;
+
+      var whenLabel = { evening: 'Evening', dayWeekend: 'Weekend daytime', dayWeekday: 'Weekday daytime' }[state.when];
+      $('rSpace').textContent = state.space === 'lounge' ? sp.name + ' · ' + whenLabel : sp.name;
+
+      var lines = [];
+      lines.push([TIER_NAMES[state.tier] + ' × ' + g, money(food)]);
+      if (drinks) lines.push([BEV_NAMES[state.bev] + ' × ' + g, money(drinks)]);
+      if (!drinks) lines.push(['Drinks (non-hosted, guests order their own)', '$0', 'muted']);
+      lines.push([sp.name + ' minimum ' + money(sp.min), fb >= sp.min ? 'Met' : '', 'muted']);
+      if (shortfall) lines.push(['Unused minimum', money(shortfall)]);
+      lines.push(['Service charge (' + Math.round(PRICING.serviceRate * 100) + '%)', money(service)]);
+      lines.push(['Hawai‘i GET (4.712%)', money(tax)]);
+      lines.push(['Deposit to hold (' + Math.round(PRICING.depositRate * 100) + '%)', money(total * PRICING.depositRate), 'muted']);
+
+      $('rLines').innerHTML = lines.map(function (l) {
+        return '<li' + (l[2] ? ' class="' + l[2] + '"' : '') + '><span>' + l[0] + '</span><span>' + l[1] + '</span></li>';
+      }).join('');
+      $('rTotal').textContent = money(total);
+      $('rPP').textContent = money(total / g) + ' per guest, everything included';
+
+      var warn = '';
+      if (g > cap) warn = sp.name + ' holds ' + cap + ' ' + state.format + '. Try ' + (state.format === 'seated' ? 'a standing reception' : 'fewer guests') + ', or ask Sherene.';
+      else if (shortfall && state.space === 'buyout') warn = 'Tip: add a hosted bar or upgrade the menu. It goes toward the minimum at no extra cost.';
+      $('rWarn').textContent = warn;
+      $('rWarn').style.display = warn ? 'block' : 'none';
+
+      $('whenHint').textContent = state.space === 'lounge' ? '' : 'buyout minimums change by time';
+      $('guestOut').textContent = g;
+
+      var dateLabel = '';
+      if (state.date) {
+        var d = state.date;
+        dateLabel = DAYS[d.getDay()] + ', ' + MONTHS[d.getMonth()] + ' ' + d.getDate();
+        $('calPicked').textContent = dateLabel + (isPeak(d) ? ' · one of the most requested nights, hold it soon' : inSeason(d) ? ' · holiday season' : '');
+        $('rSpace').textContent = dateLabel + ' · ' + $('rSpace').textContent;
+        $('fDate').value = iso(d);
+      }
+
+      // Prefill the inquiry form
+      $('fGuests').value = g;
+      $('fOccasion').value = state.occasion;
+      $('fSpace').value = state.space === 'lounge' ? 'Private Collection Lounge' : sp.name;
+      $('fEstimate').value = (dateLabel ? dateLabel + ' | ' : '') + sp.name + ' | ' + TIER_NAMES[state.tier] + ' | ' + (BEV_NAMES[state.bev] || 'Non-hosted') + ' | ' + g + ' guests ' + state.format + ' | ' + money(total) + ' all-in';
+    }
+
+    document.querySelectorAll('[data-group]').forEach(function (group) {
+      group.addEventListener('click', function (e) {
+        var btn = e.target.closest('.chip');
+        if (!btn || btn.disabled) return;
+        group.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', c === btn ? 'true' : 'false'); });
+        state[group.getAttribute('data-group')] = btn.getAttribute('data-val');
+        if (group.getAttribute('data-group') === 'when') syncWhenToDate();
+        render();
+      });
+    });
+
+    $('guests').addEventListener('input', function (e) {
+      state.guests = +e.target.value;
+      if (state.guests > PRICING.spaces.lounge.standing && state.space === 'lounge') {
+        state.space = 'buyout';
+        document.querySelectorAll('[data-group="space"] .chip').forEach(function (c) {
+          c.setAttribute('aria-pressed', c.getAttribute('data-val') === 'buyout' ? 'true' : 'false');
+        });
+      }
+      render();
+    });
+
+    $('reserveBtn').addEventListener('click', function () {
+      if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', { content_name: 'Private Events Estimate', value: parseInt($('rTotal').textContent.replace(/\D/g, ''), 10), currency: 'USD' });
+    });
+
+    $('inquiryForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var form = e.target;
+      var data = Object.fromEntries(new FormData(form));
+      if (data._honey) return;
+      data._subject = 'Private event inquiry: ' + data.occasion + ', ' + data.date + ' (' + data.guests + ' guests)';
+      data._replyto = data.email;
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true; btn.textContent = 'Sending\u2026';
+      var done = function () {
+        form.style.display = 'none';
+        $('formThanks').style.display = 'block';
+        if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'Private Events Inquiry', content_category: 'Private Events' });
+      };
+      fetch('https://formsubmit.co/ajax/sherene@vintagebookshawaii.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (r) { if (String(r.success) !== 'true') throw new Error(r.message); done(); })
+        .catch(function () {
+          // Service unreachable: fall back to the visitor's own email app
+          var text = ['Name: ' + data.name, 'Company: ' + (data.company || ''), 'Email: ' + data.email, 'Phone: ' + data.phone,
+            'Date: ' + data.date, 'Guests: ' + data.guests, 'Occasion: ' + data.occasion, 'Space: ' + data.space,
+            'Dietary: ' + (data.dietary || ''), 'Estimate: ' + data.estimate, '', data.notes || ''].join('\n');
+          window.location.href = 'mailto:sherene@vintagebookshawaii.com?subject=' +
+            encodeURIComponent(data._subject) + '&body=' + encodeURIComponent(text);
+          done();
+        });
+    });
+
+    // Open the calendar on the holiday season when we're before it
+    if (today.getMonth() >= 8 && today.getMonth() <= 10) calView = new Date(today.getFullYear(), 11, 1);
+    renderCal();
+    render();
+  </script>
+</body>
+</html>
