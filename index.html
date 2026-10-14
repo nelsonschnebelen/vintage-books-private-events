@@ -332,6 +332,8 @@
     .cal-day[aria-pressed="true"] { background: var(--brass-bright); color: var(--ink-deep); }
     .cal-day[aria-pressed="true"]::after { background: var(--ink-deep); }
     .cal-day:disabled { opacity: 0.22; cursor: not-allowed; }
+    .cal-day.booked { opacity: 0.45; text-decoration: line-through; text-decoration-color: var(--brass-bright); }
+    .cal-day.booked::after { display: none; }
     .cal-legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 12px; font-size: 11px; color: var(--parchment-dark); }
     .cal-legend i { display: inline-block; width: 12px; height: 12px; vertical-align: -1px; margin-right: 6px; }
     .cal-legend .l-season { background: rgba(74,82,64,0.9); }
@@ -568,7 +570,7 @@
   <!-- DRAFT RIBBON: remove before launch -->
   <div class="draft-ribbon" id="draftRibbon">
     <button type="button" aria-label="Dismiss" onclick="this.parentNode.remove()">&times;</button>
-    <strong>DRAFT</strong> &mdash; highlighted <span class="tbd">figures</span> are placeholders pending confirmation (package prices, service charge, deposit, hosted bar).
+    <strong>DRAFT</strong> &mdash; highlighted <span class="tbd">figures</span> are placeholders pending confirmation (menu prices, signature cocktail, service charge, deposit transfer notice).
   </div>
 
   <header class="topbar">
@@ -665,6 +667,7 @@
               <div class="cal-legend">
                 <span><i class="l-season"></i>Holiday season &middot; Nov 3 &ndash; Jan 11</span>
                 <span><i class="l-peak"></i>Most requested nights</span>
+                <span><s style="text-decoration-color:var(--brass-bright)">12</s>&nbsp; Booked</span>
               </div>
               <div class="cal-picked" id="calPicked">Choose a date to see your estimate for that day.</div>
             </div>
@@ -673,9 +676,10 @@
           <div class="step">
             <div class="step-label">03 &middot; Time of day <span id="whenHint" style="letter-spacing:1px;text-transform:none;color:var(--parchment-dark);font-size:12px"></span></div>
             <div class="chips" data-group="when">
-              <button type="button" class="chip" aria-pressed="true" data-val="evening">Evening<small>after 5pm</small></button>
-              <button type="button" class="chip" aria-pressed="false" data-val="dayWeekend">Weekend daytime<small>Sat &amp; Sun</small></button>
+              <button type="button" class="chip" aria-pressed="true" data-val="eveningWeekday">Weekday evening<small>Sun &ndash; Thu, after 5pm</small></button>
+              <button type="button" class="chip" aria-pressed="false" data-val="eveningWeekend">Weekend evening<small>Fri &amp; Sat, after 5pm</small></button>
               <button type="button" class="chip" aria-pressed="false" data-val="dayWeekday">Weekday daytime<small>Mon &ndash; Fri</small></button>
+              <button type="button" class="chip" aria-pressed="false" data-val="dayWeekend">Weekend daytime<small>Sat &amp; Sun</small></button>
             </div>
           </div>
 
@@ -712,7 +716,7 @@
             <div class="chips" data-group="bev">
               <button type="button" class="chip" aria-pressed="true" data-val="nonhosted">Non-hosted<small>guests order their own</small></button>
               <button type="button" class="chip" aria-pressed="false" data-val="signature">Signature cocktail on arrival<small>+$<span data-price="signature"></span> / guest</small></button>
-              <button type="button" class="chip" aria-pressed="false" data-val="hosted">Hosted bar, 2 hours<small>+$<span data-price="hosted"></span> / guest</small></button>
+              <button type="button" class="chip" aria-pressed="false" data-val="hosted">Hosted bar<small>billed on consumption</small></button>
             </div>
           </div>
         </div>
@@ -781,7 +785,8 @@
             <div><b>75</b><span>Standing</span></div>
           </div>
           <ul class="space-prices">
-            <li><span>Evening buyout</span><b>$6,500</b></li>
+            <li><span>Weekday evening <small style="color:var(--muted)">(Sun&ndash;Thu)</small></span><b>$6,500</b></li>
+            <li><span>Weekend evening <small style="color:var(--muted)">(Fri &amp; Sat)</small></span><b>$12,500</b></li>
           </ul>
           <p class="space-foot">Food &amp; beverage minimum, before service &amp; tax.</p>
         </div>
@@ -897,7 +902,7 @@
       <div class="bev-opts">
         <div><b>Non-hosted</b><p>Guests order and pay for their own drinks from our bar.</p></div>
         <div><b>Signature cocktail</b><p>A cocktail on arrival for every guest, named for your event if you like. <span class="tbd">$18</span>/guest.</p></div>
-        <div><b>Hosted bar</b><p>An open bar for your guests, billed per person or on consumption. From <span class="tbd">$45</span>/guest.</p></div>
+        <div><b>Hosted bar</b><p>An open bar for your guests, billed on consumption. Your bar tab counts toward the space minimum.</p></div>
       </div>
     </div>
   </section>
@@ -953,7 +958,7 @@
       <div class="terms">
         <div>
           <h3>Holding your date</h3>
-          <p>A <span class="tbd">25%</span> deposit secures your date. We'll hold a date for 72 hours while you get approval.</p>
+          <p>A 50% deposit reserves your date. We'll hold a date for 72 hours while you get approval.</p>
         </div>
         <div>
           <h3>What&rsquo;s included in the total</h3>
@@ -961,7 +966,7 @@
         </div>
         <div>
           <h3>Changing plans</h3>
-          <p>Move your deposit to a new date with <span class="tbd">14 days&rsquo;</span> notice. Final headcount is due <span class="tbd">5 days</span> before the event. Guests must be 21+ after 7pm.</p>
+          <p>Move your deposit to a new date with <span class="tbd">14 days&rsquo;</span> notice. Final headcount is due 7 days before the event. Guests must be 21+ after 7pm.</p>
         </div>
       </div>
     </div>
@@ -1014,7 +1019,8 @@
           <div>
             <label for="fSpace">Space</label>
             <select id="fSpace" name="space">
-              <option value="Evening Full Venue Buyout">Evening full venue buyout</option>
+              <option value="Weekday Evening Buyout">Weekday evening buyout</option>
+              <option value="Weekend Evening Buyout">Weekend evening buyout</option>
               <option value="Weekend Daytime Buyout">Weekend daytime buyout</option>
               <option value="Weekday Daytime Buyout">Weekday daytime buyout</option>
               <option value="Private Collection Lounge">Private Collection Lounge</option>
@@ -1072,21 +1078,31 @@
     ────────────────────────────────────────────── */
     var PRICING = {
       tiers:   { passed: 60, family: 95, holiday: 125, custom: 175 },
-      bev:     { nonhosted: 0, signature: 18, hosted: 45 },
+      bev:     { nonhosted: 0, signature: 18, hosted: 0 },   // hosted bar is billed on consumption
       spaces: {
         lounge:     { name: 'Private Collection Lounge',   min: 800,  seated: 20, standing: 20 },
-        evening:    { name: 'Evening Full Venue Buyout',   min: 6500, seated: 65, standing: 75 },
+        eveningWeekday: { name: 'Weekday Evening Buyout',  min: 6500,  seated: 65, standing: 75 },
+        eveningWeekend: { name: 'Weekend Evening Buyout',  min: 12500, seated: 65, standing: 75 },
         dayWeekend: { name: 'Weekend Daytime Buyout',      min: 2500, seated: 65, standing: 75 },
         dayWeekday: { name: 'Weekday Daytime Buyout',      min: 1500, seated: 65, standing: 75 }
       },
       serviceRate: 0.20,
       taxRate: 0.04712,   // Hawai'i GET, O'ahu
-      depositRate: 0.25
+      depositRate: 0.50
     };
-    var TIER_NAMES = { passed: 'Passed reception', family: 'Family style', holiday: 'Holiday five-course', custom: 'Chef’s custom' };
-    var BEV_NAMES  = { signature: 'Signature cocktail on arrival', hosted: 'Hosted bar, 2 hours' };
+    /* ──────────────────────────────────────────────
+       BOOKED DATES — add a date here ("YYYY-MM-DD") and it is
+       crossed out and unselectable on the calendar.
+       Holidays the venue is closed belong here too.
+    ────────────────────────────────────────────── */
+    var BOOKED_DATES = [
+      // '2026-12-12',
+    ];
 
-    var state = { occasion: 'Holiday party', when: 'evening', format: 'seated', space: 'buyout', tier: 'holiday', bev: 'nonhosted', guests: 40 };
+    var TIER_NAMES = { passed: 'Passed reception', family: 'Family style', holiday: 'Holiday five-course', custom: 'Chef’s custom' };
+    var BEV_NAMES  = { signature: 'Signature cocktail on arrival', hosted: 'Hosted bar (on consumption)' };
+
+    var state = { occasion: 'Holiday party', when: 'eveningWeekday', format: 'seated', space: 'buyout', tier: 'holiday', bev: 'nonhosted', guests: 40 };
 
     var $ = function (id) { return document.getElementById(id); };
     var money = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
@@ -1129,25 +1145,27 @@
       for (var i = 0; i < first; i++) html += '<div></div>';
       for (var day = 1; day <= n; day++) {
         var d = new Date(y, m, day);
-        var cls = 'cal-day' + (inSeason(d) ? ' season' : '') + (isPeak(d) ? ' peak' : '');
+        var booked = BOOKED_DATES.indexOf(iso(d)) !== -1;
+        var cls = 'cal-day' + (inSeason(d) ? ' season' : '') + (isPeak(d) ? ' peak' : '') + (booked ? ' booked' : '');
         var sel = state.date && d.getTime() === state.date.getTime();
         html += '<button type="button" class="' + cls + '" data-date="' + iso(d) + '" aria-pressed="' + (sel ? 'true' : 'false') + '"' +
-          (d <= today ? ' disabled' : '') + ' aria-label="' + DAYS[d.getDay()] + ', ' + MONTHS[m] + ' ' + day + '">' + day + '</button>';
+          (d <= today || booked ? ' disabled' : '') + ' aria-label="' + DAYS[d.getDay()] + ', ' + MONTHS[m] + ' ' + day + (booked ? ', booked' : '') + '">' + day + '</button>';
       }
       $('calGrid').innerHTML = html;
     }
 
+    // Weekend evenings are Fri & Sat; weekend daytime is Sat & Sun
+    function isWeekendEvening(d) { var w = d.getDay(); return w === 5 || w === 6; }
     function syncWhenToDate() {
-      var weekdayBtn = document.querySelector('[data-group="when"] [data-val="dayWeekday"]');
-      var weekendBtn = document.querySelector('[data-group="when"] [data-val="dayWeekend"]');
-      weekdayBtn.disabled = weekendBtn.disabled = false;
+      var chips = {};
+      document.querySelectorAll('[data-group="when"] .chip').forEach(function (c) { chips[c.getAttribute('data-val')] = c; c.disabled = false; });
       if (!state.date) return;
-      var we = isWeekend(state.date);
-      (we ? weekdayBtn : weekendBtn).disabled = true;
-      if (state.when !== 'evening') state.when = we ? 'dayWeekend' : 'dayWeekday';
-      document.querySelectorAll('[data-group="when"] .chip').forEach(function (c) {
-        c.setAttribute('aria-pressed', c.getAttribute('data-val') === state.when ? 'true' : 'false');
-      });
+      var weEve = isWeekendEvening(state.date), weDay = isWeekend(state.date);
+      chips[weEve ? 'eveningWeekday' : 'eveningWeekend'].disabled = true;
+      chips[weDay ? 'dayWeekday' : 'dayWeekend'].disabled = true;
+      if (state.when.indexOf('evening') === 0) state.when = weEve ? 'eveningWeekend' : 'eveningWeekday';
+      else state.when = weDay ? 'dayWeekend' : 'dayWeekday';
+      Object.keys(chips).forEach(function (k) { chips[k].setAttribute('aria-pressed', k === state.when ? 'true' : 'false'); });
     }
 
     $('calGrid').addEventListener('click', function (e) {
@@ -1180,27 +1198,29 @@
       var tax = (subtotal + service) * PRICING.taxRate;
       var total = subtotal + service + tax;
 
-      var whenLabel = { evening: 'Evening', dayWeekend: 'Weekend daytime', dayWeekday: 'Weekday daytime' }[state.when];
+      var whenLabel = { eveningWeekday: 'Weekday evening', eveningWeekend: 'Weekend evening', dayWeekend: 'Weekend daytime', dayWeekday: 'Weekday daytime' }[state.when];
       $('rSpace').textContent = state.space === 'lounge' ? sp.name + ' · ' + whenLabel : sp.name;
 
       var lines = [];
       lines.push([TIER_NAMES[state.tier] + ' × ' + g, money(food)]);
       if (drinks) lines.push([BEV_NAMES[state.bev] + ' × ' + g, money(drinks)]);
-      if (!drinks) lines.push(['Drinks (non-hosted, guests order their own)', '$0', 'muted']);
+      if (state.bev === 'hosted') lines.push(['Hosted bar, billed on consumption (counts toward minimum)', 'Tab', 'muted']);
+      if (state.bev === 'nonhosted') lines.push(['Drinks (non-hosted, guests order their own)', '$0', 'muted']);
       lines.push([sp.name + ' minimum ' + money(sp.min), fb >= sp.min ? 'Met' : '', 'muted']);
       if (shortfall) lines.push(['Unused minimum', money(shortfall)]);
       lines.push(['Service charge (' + Math.round(PRICING.serviceRate * 100) + '%)', money(service)]);
       lines.push(['Hawai‘i GET (4.712%)', money(tax)]);
-      lines.push(['Deposit to hold (' + Math.round(PRICING.depositRate * 100) + '%)', money(total * PRICING.depositRate), 'muted']);
+      lines.push(['Deposit to reserve (' + Math.round(PRICING.depositRate * 100) + '%)', money(total * PRICING.depositRate), 'muted']);
 
       $('rLines').innerHTML = lines.map(function (l) {
         return '<li' + (l[2] ? ' class="' + l[2] + '"' : '') + '><span>' + l[0] + '</span><span>' + l[1] + '</span></li>';
       }).join('');
       $('rTotal').textContent = money(total);
-      $('rPP').textContent = money(total / g) + ' per guest, everything included';
+      $('rPP').textContent = money(total / g) + ' per guest' + (state.bev === 'hosted' ? ' before the bar tab' : ', everything included');
 
       var warn = '';
       if (g > cap) warn = sp.name + ' holds ' + cap + ' ' + state.format + '. Try ' + (state.format === 'seated' ? 'a standing reception' : 'fewer guests') + ', or ask Sherene.';
+      else if (shortfall && state.bev === 'hosted') warn = 'Your bar tab counts toward the minimum, so the unused minimum shrinks as guests order.';
       else if (shortfall && state.space === 'buyout') warn = 'Tip: add a hosted bar or upgrade the menu. It goes toward the minimum at no extra cost.';
       $('rWarn').textContent = warn;
       $('rWarn').style.display = warn ? 'block' : 'none';

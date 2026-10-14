@@ -13,6 +13,11 @@ All estimator numbers live in the `PRICING` object near the bottom of `index.htm
 (space minimums, per-guest menu prices, drinks, service charge, GET, deposit).
 Displayed prices elsewhere on the page are plain text in the matching sections.
 
+## Blocking booked dates
+Add the date to the `BOOKED_DATES` list in `index.html` (format `"2026-12-12"`).
+It shows crossed out on the calendar and can't be selected. Push to `main` and
+it goes live.
+
 ## Inquiries
 The proposal form posts to FormSubmit, which emails each request to
 sherene@vintagebookshawaii.com. The first submission triggers a one-time
