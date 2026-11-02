@@ -443,6 +443,17 @@
     .pkg ul { list-style: none; font-size: 14px; }
     .pkg li { padding: 8px 0 8px 22px; border-top: 1px solid rgba(138,100,32,0.2); position: relative; }
     .pkg li::before { content: '§'; position: absolute; left: 0; color: var(--brass); font-family: 'IM Fell English', serif; }
+    .menu-tabs { display: flex; justify-content: center; gap: 10px; margin-top: 34px; flex-wrap: wrap; }
+    .menu-tabs .chip { color: var(--ink); border-color: rgba(42,29,16,0.3); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; padding: 12px 22px; }
+    .menu-tabs .chip[aria-pressed="true"] { background: var(--ink-deep); border-color: var(--ink-deep); color: var(--brass-bright); }
+    .pkg-courses { margin-top: 18px; }
+    .pkg-course { padding: 10px 0; border-top: 1px solid rgba(138,100,32,0.2); }
+    .pkg-course-n { font-family: 'IM Fell English', serif; font-style: italic; color: var(--brass); font-size: 15px; }
+    .pkg.featured .pkg-course-n { color: var(--brass-bright); }
+    .pkg-dish { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 17px; line-height: 1.3; margin-top: 2px; }
+    .pkg-detail { font-size: 13px; color: var(--muted); line-height: 1.45; }
+    .pkg.featured .pkg-detail { color: var(--parchment-dark); }
+    .pkg-or { font-family: 'IM Fell English', serif; font-style: italic; font-size: 13px; color: var(--muted); margin: 2px 0; }
     .pkg-best { margin-top: auto; padding-top: 18px; font-size: 12px; color: var(--muted); }
     .pkg.featured .pkg-best { color: var(--parchment-dark); }
 
@@ -570,7 +581,7 @@
   <!-- DRAFT RIBBON: remove before launch -->
   <div class="draft-ribbon" id="draftRibbon">
     <button type="button" aria-label="Dismiss" onclick="this.parentNode.remove()">&times;</button>
-    <strong>DRAFT</strong> &mdash; highlighted <span class="tbd">figures</span> are placeholders pending confirmation (menu prices, signature cocktail, service charge, deposit transfer notice).
+    <strong>DRAFT</strong> &mdash; highlighted <span class="tbd">figures</span> are placeholders pending confirmation (day-of-week minimums, brunch price, signature cocktail, service charge, deposit transfer notice).
   </div>
 
   <header class="topbar">
@@ -676,10 +687,8 @@
           <div class="step">
             <div class="step-label">03 &middot; Time of day <span id="whenHint" style="letter-spacing:1px;text-transform:none;color:var(--parchment-dark);font-size:12px"></span></div>
             <div class="chips" data-group="when">
-              <button type="button" class="chip" aria-pressed="true" data-val="eveningWeekday">Weekday evening<small>Sun &ndash; Thu, after 5pm</small></button>
-              <button type="button" class="chip" aria-pressed="false" data-val="eveningWeekend">Weekend evening<small>Fri &amp; Sat, after 5pm</small></button>
-              <button type="button" class="chip" aria-pressed="false" data-val="dayWeekday">Weekday daytime<small>Mon &ndash; Fri</small></button>
-              <button type="button" class="chip" aria-pressed="false" data-val="dayWeekend">Weekend daytime<small>Sat &amp; Sun</small></button>
+              <button type="button" class="chip" aria-pressed="true" data-val="evening">Evening<small>after 5pm</small></button>
+              <button type="button" class="chip" aria-pressed="false" data-val="day">Daytime<small>brunch &amp; lunch</small></button>
             </div>
           </div>
 
@@ -696,18 +705,14 @@
           <div class="step">
             <div class="step-label">05 &middot; Space</div>
             <div class="chips" data-group="space">
-              <button type="button" class="chip" aria-pressed="false" data-val="lounge">Private Collection Lounge<small>up to 20 guests</small></button>
-              <button type="button" class="chip" aria-pressed="true" data-val="buyout">Full venue buyout<small>up to 65 seated / 75 standing</small></button>
+              <button type="button" class="chip" aria-pressed="false" data-val="lounge">Private Collection Lounge<small>seats 20</small></button>
+              <button type="button" class="chip" aria-pressed="true" data-val="buyout">Full venue buyout<small>65 seated / up to 75 standing</small></button>
             </div>
           </div>
 
           <div class="step">
             <div class="step-label">06 &middot; Menu</div>
-            <div class="chips tier-grid" data-group="tier">
-              <button type="button" class="chip" aria-pressed="false" data-val="passed"><b>Passed</b>from $<span data-price="passed"></span> / guest</button>
-              <button type="button" class="chip" aria-pressed="false" data-val="family"><b>Family Style</b>from $<span data-price="family"></span> / guest</button>
-              <button type="button" class="chip" aria-pressed="true" data-val="holiday"><b>Holiday Five-Course</b>$<span data-price="holiday"></span> / guest</button>
-              <button type="button" class="chip" aria-pressed="false" data-val="custom"><b>Chef&rsquo;s Custom</b>up to $<span data-price="custom"></span> / guest</button>
+            <div class="chips tier-grid" data-group="tier" id="tierChips">
             </div>
           </div>
 
@@ -749,11 +754,9 @@
           <h3>The Private Collection Lounge</h3>
           <p class="space-desc">Walls papered in book pages, velvet banquettes and low lamps. Ideal for birthdays, team drinks and a small dinner that feels like a secret.</p>
           <div class="space-cap">
-            <div><b>20</b><span>Seated or standing</span></div>
+            <div><b>20</b><span>Seated</span></div>
           </div>
-          <ul class="space-prices">
-            <li><span>Lounge minimum</span><b>$800</b></li>
-          </ul>
+          <ul class="space-prices" data-mins="lounge"></ul>
           <p class="space-foot">Food &amp; beverage minimum, before service &amp; tax.</p>
         </div>
       </article>
@@ -765,12 +768,9 @@
           <p class="space-desc">The whole house by daylight: dining room, lounge and bar. Made for showers, luncheons, off-sites and long weekend celebrations.</p>
           <div class="space-cap">
             <div><b>65</b><span>Seated</span></div>
-            <div><b>75</b><span>Standing</span></div>
+            <div><b>75</b><span>Standing max</span></div>
           </div>
-          <ul class="space-prices">
-            <li><span>Weekday daytime</span><b>$1,500</b></li>
-            <li><span>Weekend daytime</span><b>$2,500</b></li>
-          </ul>
+          <ul class="space-prices" data-mins="buyout.day"></ul>
           <p class="space-foot">Food &amp; beverage minimum, before service &amp; tax.</p>
         </div>
       </article>
@@ -782,12 +782,9 @@
           <p class="space-desc">After 5pm the speakeasy is yours. The bookshelf door stays shut, the lamps go low and the bar pours for your guests only.</p>
           <div class="space-cap">
             <div><b>65</b><span>Seated</span></div>
-            <div><b>75</b><span>Standing</span></div>
+            <div><b>75</b><span>Standing max</span></div>
           </div>
-          <ul class="space-prices">
-            <li><span>Weekday evening <small style="color:var(--muted)">(Sun&ndash;Thu)</small></span><b>$6,500</b></li>
-            <li><span>Weekend evening <small style="color:var(--muted)">(Fri &amp; Sat)</small></span><b>$12,500</b></li>
-          </ul>
+          <ul class="space-prices" data-mins="buyout.evening"></ul>
           <p class="space-foot">Food &amp; beverage minimum, before service &amp; tax.</p>
         </div>
       </article>
@@ -837,7 +834,7 @@
           <div class="course-n">Dessert</div>
           <div class="course-dish">Chef&rsquo;s Daily Selection</div>
         </div>
-        <div class="menu-card-foot"><span class="tbd">$125</span> per guest &middot; custom menus available</div>
+        <div class="menu-card-foot">$90 per guest &middot; our five-course plated menu &middot; custom menus available</div>
       </div>
     </div>
   </section>
@@ -846,53 +843,14 @@
   <section class="section" id="packages">
     <div class="wrap center">
       <p class="eyebrow">Menus &amp; pricing</p>
-      <h2 class="h2">From $60 to $175 a guest, <em>no guesswork.</em></h2>
-      <p class="lede">Every menu is built from local ingredients and served your way: passed, family style or plated. Each price below is per guest, before service and tax.</p>
+      <h2 class="h2">From $50 to $90 a guest, <em>no guesswork.</em></h2>
+      <p class="lede">Shared family style down long tables, or individually plated courses. Every price is per guest, before service and tax. Our brunch menu is available for daytime events, and custom menus can be written with the chef.</p>
     </div>
-    <div class="wrap packages">
-      <article class="pkg">
-        <span class="pkg-style">Passed</span>
-        <h3>The Reception</h3>
-        <div class="pkg-price">$60 <small>/ guest</small></div>
-        <p class="pkg-desc">Chef&rsquo;s bites passed through the room while guests mingle, from the lounge to the bar.</p>
-        <ul>
-          <li>Rotating passed canap&eacute;s</li>
-          <li>Standing, cocktail-party flow</li>
-          <li>Up to 75 guests</li>
-          <li>Pairs well with a signature cocktail</li>
-        </ul>
-        <p class="pkg-best">Best for mixers, launches and after-work celebrations</p>
-      </article>
-
-      <article class="pkg featured">
-        <span class="pkg-flag">Holiday favorite</span>
-        <span class="pkg-style">Plated</span>
-        <h3>The Holiday Five-Course</h3>
-        <div class="pkg-price"><span class="tbd">$125</span> <small>/ guest</small></div>
-        <p class="pkg-desc">Raw seafood, prawn salad, lobster ravioli, local catch and braised short rib, then dessert.</p>
-        <ul>
-          <li>Five courses plus dessert</li>
-          <li>Seated for up to 65</li>
-          <li>Printed menus for the table</li>
-          <li>Dietary swaps confirmed in advance</li>
-        </ul>
-        <p class="pkg-best">Best for company holiday parties and client dinners</p>
-      </article>
-
-      <article class="pkg">
-        <span class="pkg-style">Family style &middot; Custom</span>
-        <h3>The Chef&rsquo;s Table</h3>
-        <div class="pkg-price"><span class="tbd">$95</span>&ndash;$175 <small>/ guest</small></div>
-        <p class="pkg-desc">Shared platters down long tables, or a menu written with the chef for your occasion.</p>
-        <ul>
-          <li>Family-style or fully custom</li>
-          <li>Menu planning call with the chef</li>
-          <li>Seated for up to 65</li>
-          <li>Local and seasonal ingredients</li>
-        </ul>
-        <p class="pkg-best">Best for rehearsal dinners, milestones and team dinners</p>
-      </article>
+    <div class="wrap menu-tabs" data-menu-tabs>
+      <button type="button" class="chip" aria-pressed="true" data-style="family">Shared family style</button>
+      <button type="button" class="chip" aria-pressed="false" data-style="plated">Individually plated</button>
     </div>
+    <div class="wrap packages" id="menuCards"></div>
 
     <div class="wrap bev">
       <div>
@@ -1019,10 +977,8 @@
           <div>
             <label for="fSpace">Space</label>
             <select id="fSpace" name="space">
-              <option value="Weekday Evening Buyout">Weekday evening buyout</option>
-              <option value="Weekend Evening Buyout">Weekend evening buyout</option>
-              <option value="Weekend Daytime Buyout">Weekend daytime buyout</option>
-              <option value="Weekday Daytime Buyout">Weekday daytime buyout</option>
+              <option value="Full Venue Buyout · Evening">Full venue buyout, evening</option>
+              <option value="Full Venue Buyout · Daytime">Full venue buyout, daytime</option>
               <option value="Private Collection Lounge">Private Collection Lounge</option>
               <option value="Not sure yet">Not sure yet</option>
             </select>
@@ -1077,19 +1033,32 @@
        signature/hosted bar, service charge, deposit.
     ────────────────────────────────────────────── */
     var PRICING = {
-      tiers:   { passed: 60, family: 95, holiday: 125, custom: 175 },
+      brunch: 45,   // placeholder: brunch menu per-guest price
       bev:     { nonhosted: 0, signature: 18, hosted: 0 },   // hosted bar is billed on consumption
-      spaces: {
-        lounge:     { name: 'Private Collection Lounge',   min: 800,  seated: 20, standing: 20 },
-        eveningWeekday: { name: 'Weekday Evening Buyout',  min: 6500,  seated: 65, standing: 75 },
-        eveningWeekend: { name: 'Weekend Evening Buyout',  min: 12500, seated: 65, standing: 75 },
-        dayWeekend: { name: 'Weekend Daytime Buyout',      min: 2500, seated: 65, standing: 75 },
-        dayWeekday: { name: 'Weekday Daytime Buyout',      min: 1500, seated: 65, standing: 75 }
+      capacity: {
+        lounge: { seated: 20, standing: 20 },
+        buyout: { seated: 65, standing: 75, comfortable: 65 }   // over 65 standing is case by case
       },
       serviceRate: 0.20,
       taxRate: 0.04712,   // Hawai'i GET, O'ahu
       depositRate: 0.50
     };
+    /* ──────────────────────────────────────────────
+       MINIMUMS — food & beverage minimum by space, time of day
+       and day of week. Change a number here and the calendar,
+       the quote and the space cards all update.
+    ────────────────────────────────────────────── */
+    var MINIMUMS = {
+      buyout: {
+        day:     { Sun: 2500, Mon: 1500, Tue: 1500, Wed: 1500, Thu: 1500, Fri: 1500,  Sat: 2500 },
+        evening: { Sun: 6500, Mon: 6500, Tue: 6500, Wed: 6500, Thu: 6500, Fri: 12500, Sat: 12500 }
+      },
+      lounge: {
+        day:     { Sun: 800, Mon: 800, Tue: 800, Wed: 800, Thu: 800, Fri: 800, Sat: 800 },
+        evening: { Sun: 800, Mon: 800, Tue: 800, Wed: 800, Thu: 800, Fri: 800, Sat: 800 }
+      }
+    };
+
     /* ──────────────────────────────────────────────
        BOOKED DATES — add a date here ("YYYY-MM-DD") and it is
        crossed out and unselectable on the calendar.
@@ -1099,20 +1068,132 @@
       // '2026-12-12',
     ];
 
-    var TIER_NAMES = { passed: 'Passed reception', family: 'Family style', holiday: 'Holiday five-course', custom: 'Chef’s custom' };
+    /* ──────────────────────────────────────────────
+       MENUS — the Menus section and the quote's menu options are
+       both built from this list. d = dish, x = details.
+    ────────────────────────────────────────────── */
+    var MENUS = [
+      { id: 'family50', style: 'family', name: 'The Short Story', price: 50, best: 'Team dinners and casual celebrations', courses: [
+        ['First course', [{ d: 'Kim chee flight' }, { d: 'Smoked Sichuan tofu salad' }]],
+        ['Second course', [{ d: 'Chicken karaage with sauces' }, { d: 'Lamb spare ribs' }, { d: 'Steamed clams' }]],
+        ['Entrée', [{ d: 'Fresh catch' }, { d: 'Pan-seared rib eye' }]],
+        ['Dessert', [{ d: 'Chef’s daily selection' }]] ] },
+      { id: 'family65', style: 'family', name: 'The Novella', price: 65, best: 'Holiday parties and team celebrations', courses: [
+        ['First course', [{ d: 'Island farmers salad' }, { d: 'Hauʻula tomato salad' }, { d: 'Seared island ahi', x: 'Truffled ponzu, pickled Maui onion and ogo, sea asparagus' }]],
+        ['Second course', [{ d: 'Lamb spare ribs' }, { d: 'Steamed clams', x: 'White wine butter sauce, lup chong, baguette, fresh herbs' }]],
+        ['Entrée', [{ d: 'Steamed fresh snapper', x: 'Ginger pesto, linguini, garlic choi sum' }, { d: 'Grilled rib eye', x: 'Peppercorn demi-glace, asparagus, garlic mashed potato' }]],
+        ['Dessert', [{ d: 'Daily selection' }]] ] },
+      { id: 'family85', style: 'family', name: 'The Saga', price: 85, best: 'Client dinners and milestone celebrations', courses: [
+        ['First course', [{ d: 'Chef’s seasonal chilled seafood selection' }, { d: 'Smoked Sichuan tofu salad' }, { d: 'Island farmers salad' }]],
+        ['Second course', [{ d: 'Cochinita taco', x: 'Tahini lime aioli, pickled red onion' }, { d: 'Steamed clams', x: 'White wine butter sauce, Portuguese sausage, baguette' }, { d: 'Crispy duck confit', x: 'Bok choy, foie gras demi-glace, lemon herb gremolata' }]],
+        ['Entrée', [{ d: 'Grilled Maine lobster', x: 'Herbed bread crumbs, linguini, oven-roasted grape tomato, EVOO' }, { d: 'Pan-seared fresh catch', x: 'Ginger butter sauce, truffled lomi tomato relish, cauliflower purée' }, { d: 'Grilled kalbi', x: 'Blistered shishito peppers, kim chee, garlic fried rice' }]],
+        ['Dessert', [{ d: 'Chef’s daily selection' }]] ] },
+      { id: 'plated65', style: 'plated', name: 'The Prologue', price: 65, best: 'Seated dinners and rehearsal dinners', courses: [
+        ['First course', [{ d: 'Hauʻula tomato salad', x: 'Coconut XO, fried curry leaf, pineapple vinaigrette, micro cilantro' }]],
+        ['Second course', [{ d: 'Chef’s crudo selection' }]],
+        ['Third course', [{ d: 'Wild mushroom pasta', x: 'Shiitake and honshimeji mushrooms, olive XO, San Marzano tomato, fried capers' }]],
+        ['Entrée, choice of', [{ d: 'Fresh catch of the day', x: 'Leek and caper oil, herb salad, asparagus risotto' }, { d: 'Pan-seared rib eye', x: 'Arugula, lemon truffle vinaigrette, roasted fingerling potato, veal jus' }], true],
+        ['Dessert', [{ d: 'Daily selection' }]] ] },
+      { id: 'plated75', style: 'plated', name: 'The Chronicle', price: 75, best: 'Client entertaining and executive dinners', courses: [
+        ['First course', [{ d: 'Chef’s crudo selection' }]],
+        ['Second course', [{ d: 'Australian grass-fed lamb spare rib', x: 'House-made crème fraîche, mint, fish caramel sauce' }]],
+        ['Third course', [{ d: 'Steamed Manila clam pasta', x: 'Goan curry sauce, linguini, Portuguese sausage crumble, cilantro' }]],
+        ['Entrée, choice of', [{ d: 'Crispy-skinned Kona kanpachi', x: 'Ginger scallion pesto, choi sum, garlic fried rice, pickled red onion' }, { d: 'Grilled boneless kalbi', x: 'Blistered shishito peppers, kim chee butter, yukari rice, kizami nori' }], true],
+        ['Dessert', [{ d: 'Chef’s selection' }]] ] },
+      { id: 'plated90', style: 'plated', name: 'The First Edition', price: 90, flag: 'Holiday favorite', best: 'Company holiday parties and special occasions', courses: [
+        ['First course', [{ d: 'Chef’s raw selection of premium seafood' }]],
+        ['Second course', [{ d: 'Grilled marinated prawn salad', x: 'Local greens, citrus vinaigrette, Thai basil, trail mix' }]],
+        ['Third course', [{ d: 'Lobster & lemon ricotta ravioli', x: 'Lobster uni butter sauce, white truffle oil, Pecorino Romano, tarragon' }]],
+        ['Fourth course', [{ d: 'Grilled local fresh catch' }]],
+        ['Fifth course', [{ d: 'Braised short rib', x: 'Roasted root vegetables, truffled pommes purée, peppercorn red wine veal jus' }]],
+        ['Dessert', [{ d: 'Chef’s daily selection' }]] ] }
+    ];
+    var MENU_BY_ID = {};
+    MENUS.forEach(function (m) { MENU_BY_ID[m.id] = m; });
+    function menuPrice(id) { return id === 'brunch' ? PRICING.brunch : MENU_BY_ID[id].price; }
+    function menuLabel(id) {
+      if (id === 'brunch') return 'Brunch menu';
+      var m = MENU_BY_ID[id]; return m.name + ' (' + (m.style === 'family' ? 'family style' : 'plated') + ')';
+    }
     var BEV_NAMES  = { signature: 'Signature cocktail on arrival', hosted: 'Hosted bar (on consumption)' };
 
-    var state = { occasion: 'Holiday party', when: 'eveningWeekday', format: 'seated', space: 'buyout', tier: 'holiday', bev: 'nonhosted', guests: 40 };
+    var state = { occasion: 'Holiday party', when: 'evening', format: 'seated', space: 'buyout', tier: 'plated90', bev: 'nonhosted', guests: 40 };
 
     var $ = function (id) { return document.getElementById(id); };
     var money = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
 
     document.querySelectorAll('[data-price]').forEach(function (el) {
       var k = el.getAttribute('data-price');
-      el.textContent = PRICING.tiers[k] != null ? PRICING.tiers[k] : PRICING.bev[k];
+      el.textContent = PRICING.bev[k];
     });
 
-    function spaceKey() { return state.space === 'lounge' ? 'lounge' : state.when; }
+    // Quote: menu options
+    $('tierChips').innerHTML = MENUS.map(function (m) {
+      return '<button type="button" class="chip" aria-pressed="' + (m.id === state.tier) + '" data-val="' + m.id + '"><b>' + m.name + '</b>$' + m.price + ' / guest &middot; ' + (m.style === 'family' ? 'family style' : 'plated') + '</button>';
+    }).join('') + '<button type="button" class="chip" aria-pressed="false" data-val="brunch"><b>Brunch Menu</b>from $<span class="tbd">' + PRICING.brunch + '</span> / guest &middot; daytime</button>';
+
+    // Menus section: cards for the selected style
+    function renderMenuCards(style) {
+      $('menuCards').innerHTML = MENUS.filter(function (m) { return m.style === style; }).map(function (m) {
+        return '<article class="pkg' + (m.flag ? ' featured' : '') + '">' +
+          (m.flag ? '<span class="pkg-flag">' + m.flag + '</span>' : '') +
+          '<span class="pkg-style">' + (m.style === 'family' ? 'Shared family style' : 'Individually plated') + '</span>' +
+          '<h3>' + m.name + '</h3>' +
+          '<div class="pkg-price">$' + m.price + ' <small>/ guest</small></div>' +
+          '<div class="pkg-courses">' + m.courses.map(function (c) {
+            return '<div class="pkg-course"><div class="pkg-course-n">' + c[0] + '</div>' +
+              c[1].map(function (it, k) {
+                return (c[2] && k ? '<div class="pkg-or">or</div>' : '') + '<div class="pkg-dish">' + it.d + '</div>' + (it.x ? '<div class="pkg-detail">' + it.x + '</div>' : '');
+              }).join('') + '</div>';
+          }).join('') + '</div>' +
+          '<p class="pkg-best">Best for ' + m.best.charAt(0).toLowerCase() + m.best.slice(1) + '</p>' +
+        '</article>';
+      }).join('');
+    }
+    document.querySelector('[data-menu-tabs]').addEventListener('click', function (e) {
+      var b = e.target.closest('.chip'); if (!b) return;
+      this.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', c === b ? 'true' : 'false'); });
+      renderMenuCards(b.getAttribute('data-style'));
+    });
+    renderMenuCards('family');
+
+    var DOW = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    // Minimum for the current selection; without a date, the lowest of the week ("from")
+    function currentMin() {
+      var table = MINIMUMS[state.space][state.when];
+      if (state.date) return { amount: table[DOW[state.date.getDay()]], from: false };
+      return { amount: Math.min.apply(null, DOW.map(function (d) { return table[d]; })), from: true };
+    }
+    function spaceName() {
+      return (state.space === 'lounge' ? 'Private Collection Lounge' : 'Full Venue Buyout') + ' \u00b7 ' + (state.when === 'day' ? 'Daytime' : 'Evening');
+    }
+
+    // Space cards: group days that share a minimum, e.g. "Mon – Fri  $1,500"
+    function dayRanges(days) {
+      var order = [1, 2, 3, 4, 5, 6, 0], inSet = order.map(function (d) { return days.indexOf(d) !== -1; });
+      if (inSet.every(Boolean)) return 'Any day';
+      var runs = [];
+      for (var k = 0; k < 7; k++) {
+        if (!inSet[k] || inSet[(k + 6) % 7]) continue;          // start of a run (wraps Sun→Mon)
+        var e = k; while (inSet[(e + 1) % 7] && (e + 1) % 7 !== k) e = (e + 1) % 7;
+        runs.push(DOW[order[k]] + (e === k ? '' : ' \u2013 ' + DOW[order[e]]));
+      }
+      return runs.join(', ');
+    }
+    document.querySelectorAll('[data-mins]').forEach(function (ul) {
+      var path = ul.getAttribute('data-mins').split('.'), rows = [];
+      if (path.length === 1) {
+        var t = MINIMUMS[path[0]], same = DOW.every(function (d) { return t.day[d] === t.day.Sun && t.evening[d] === t.day.Sun; });
+        if (same) rows.push(['Any day, day or evening', t.day.Sun]);
+        else { rows.push(['Daytime from', Math.min.apply(null, DOW.map(function (d) { return t.day[d]; }))]);
+               rows.push(['Evening from', Math.min.apply(null, DOW.map(function (d) { return t.evening[d]; }))]); }
+      } else {
+        var table = MINIMUMS[path[0]][path[1]], byVal = {};
+        DOW.forEach(function (d, i) { (byVal[table[d]] = byVal[table[d]] || []).push(i); });
+        Object.keys(byVal).sort(function (a, b) { return a - b; }).forEach(function (v) { rows.push([dayRanges(byVal[v]), +v]); });
+      }
+      ul.innerHTML = rows.map(function (r) { return '<li><span>' + r[0] + '</span><b>' + money(r[1]) + '</b></li>'; }).join('');
+    });
 
     /* ─── Calendar ─── */
     var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -1154,26 +1235,11 @@
       $('calGrid').innerHTML = html;
     }
 
-    // Weekend evenings are Fri & Sat; weekend daytime is Sat & Sun
-    function isWeekendEvening(d) { var w = d.getDay(); return w === 5 || w === 6; }
-    function syncWhenToDate() {
-      var chips = {};
-      document.querySelectorAll('[data-group="when"] .chip').forEach(function (c) { chips[c.getAttribute('data-val')] = c; c.disabled = false; });
-      if (!state.date) return;
-      var weEve = isWeekendEvening(state.date), weDay = isWeekend(state.date);
-      chips[weEve ? 'eveningWeekday' : 'eveningWeekend'].disabled = true;
-      chips[weDay ? 'dayWeekday' : 'dayWeekend'].disabled = true;
-      if (state.when.indexOf('evening') === 0) state.when = weEve ? 'eveningWeekend' : 'eveningWeekday';
-      else state.when = weDay ? 'dayWeekend' : 'dayWeekday';
-      Object.keys(chips).forEach(function (k) { chips[k].setAttribute('aria-pressed', k === state.when ? 'true' : 'false'); });
-    }
-
     $('calGrid').addEventListener('click', function (e) {
       var btn = e.target.closest('.cal-day');
       if (!btn || btn.disabled) return;
       var p = btn.getAttribute('data-date').split('-');
       state.date = new Date(+p[0], +p[1] - 1, +p[2]);
-      syncWhenToDate();
       renderCal();
       render();
     });
@@ -1181,15 +1247,15 @@
     $('calNext').addEventListener('click', function () { calView.setMonth(calView.getMonth() + 1); renderCal(); });
 
     function render() {
-      var sp = PRICING.spaces[spaceKey()];
-      var cap = sp[state.format];
+      var min = currentMin(), cap = PRICING.capacity[state.space][state.format];
+      var sp = { name: spaceName(), min: min.amount };
       var g = state.guests;
 
       // Lounge only makes sense up to 20 guests
       var loungeBtn = document.querySelector('[data-group="space"] [data-val="lounge"]');
-      loungeBtn.disabled = g > PRICING.spaces.lounge.standing;
+      loungeBtn.disabled = g > PRICING.capacity.lounge.seated;
 
-      var food = PRICING.tiers[state.tier] * g;
+      var food = menuPrice(state.tier) * g;
       var drinks = PRICING.bev[state.bev] * g;
       var fb = food + drinks;
       var shortfall = Math.max(0, sp.min - fb);
@@ -1198,15 +1264,14 @@
       var tax = (subtotal + service) * PRICING.taxRate;
       var total = subtotal + service + tax;
 
-      var whenLabel = { eveningWeekday: 'Weekday evening', eveningWeekend: 'Weekend evening', dayWeekend: 'Weekend daytime', dayWeekday: 'Weekday daytime' }[state.when];
-      $('rSpace').textContent = state.space === 'lounge' ? sp.name + ' · ' + whenLabel : sp.name;
+      $('rSpace').textContent = sp.name;
 
       var lines = [];
-      lines.push([TIER_NAMES[state.tier] + ' × ' + g, money(food)]);
+      lines.push([menuLabel(state.tier) + ' × ' + g, money(food)]);
       if (drinks) lines.push([BEV_NAMES[state.bev] + ' × ' + g, money(drinks)]);
       if (state.bev === 'hosted') lines.push(['Hosted bar, billed on consumption (counts toward minimum)', 'Tab', 'muted']);
       if (state.bev === 'nonhosted') lines.push(['Drinks (non-hosted, guests order their own)', '$0', 'muted']);
-      lines.push([sp.name + ' minimum ' + money(sp.min), fb >= sp.min ? 'Met' : '', 'muted']);
+      lines.push([(min.from ? 'Minimum from ' : 'Minimum for this date ') + money(sp.min) + (min.from ? ' (pick a date for the exact figure)' : ''), fb >= sp.min ? 'Met' : '', 'muted']);
       if (shortfall) lines.push(['Unused minimum', money(shortfall)]);
       lines.push(['Service charge (' + Math.round(PRICING.serviceRate * 100) + '%)', money(service)]);
       lines.push(['Hawai‘i GET (4.712%)', money(tax)]);
@@ -1219,13 +1284,15 @@
       $('rPP').textContent = money(total / g) + ' per guest' + (state.bev === 'hosted' ? ' before the bar tab' : ', everything included');
 
       var warn = '';
-      if (g > cap) warn = sp.name + ' holds ' + cap + ' ' + state.format + '. Try ' + (state.format === 'seated' ? 'a standing reception' : 'fewer guests') + ', or ask Sherene.';
+      if (g > cap) warn = (state.space === 'lounge' ? 'The Private Collection Lounge' : 'The full venue') + ' holds ' + cap + ' ' + state.format + '. Try ' + (state.format === 'seated' && state.space === 'buyout' ? 'a standing reception' : 'fewer guests') + ', or ask Sherene.';
+      else if (state.space === 'buyout' && g > PRICING.capacity.buyout.comfortable) warn = 'Over 65 guests we confirm case by case so the room stays comfortable. Sherene will talk it through with you.';
+      else if (state.tier === 'brunch' && state.when === 'evening') warn = 'The brunch menu is for daytime events. Switch to daytime, or pick an evening menu.';
       else if (shortfall && state.bev === 'hosted') warn = 'Your bar tab counts toward the minimum, so the unused minimum shrinks as guests order.';
       else if (shortfall && state.space === 'buyout') warn = 'Tip: add a hosted bar or upgrade the menu. It goes toward the minimum at no extra cost.';
       $('rWarn').textContent = warn;
       $('rWarn').style.display = warn ? 'block' : 'none';
 
-      $('whenHint').textContent = state.space === 'lounge' ? '' : 'buyout minimums change by time';
+      $('whenHint').textContent = 'minimums vary by day of the week';
       $('guestOut').textContent = g;
 
       var dateLabel = '';
@@ -1241,7 +1308,8 @@
       $('fGuests').value = g;
       $('fOccasion').value = state.occasion;
       $('fSpace').value = state.space === 'lounge' ? 'Private Collection Lounge' : sp.name;
-      $('fEstimate').value = (dateLabel ? dateLabel + ' | ' : '') + sp.name + ' | ' + TIER_NAMES[state.tier] + ' | ' + (BEV_NAMES[state.bev] || 'Non-hosted') + ' | ' + g + ' guests ' + state.format + ' | ' + money(total) + ' all-in';
+      $('rTotal').textContent = (min.from ? 'from ' : '') + money(total);
+      $('fEstimate').value = (dateLabel ? dateLabel + ' | ' : '') + sp.name + ' | ' + menuLabel(state.tier) + ' | ' + (BEV_NAMES[state.bev] || 'Non-hosted') + ' | ' + g + ' guests ' + state.format + ' | ' + money(total) + ' all-in';
     }
 
     document.querySelectorAll('[data-group]').forEach(function (group) {
@@ -1250,14 +1318,13 @@
         if (!btn || btn.disabled) return;
         group.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', c === btn ? 'true' : 'false'); });
         state[group.getAttribute('data-group')] = btn.getAttribute('data-val');
-        if (group.getAttribute('data-group') === 'when') syncWhenToDate();
         render();
       });
     });
 
     $('guests').addEventListener('input', function (e) {
       state.guests = +e.target.value;
-      if (state.guests > PRICING.spaces.lounge.standing && state.space === 'lounge') {
+      if (state.guests > PRICING.capacity.lounge.seated && state.space === 'lounge') {
         state.space = 'buyout';
         document.querySelectorAll('[data-group="space"] .chip').forEach(function (c) {
           c.setAttribute('aria-pressed', c.getAttribute('data-val') === 'buyout' ? 'true' : 'false');

@@ -8,10 +8,13 @@ Static HTML: no build step. Every push to `main` redeploys wherever it's hosted.
 - `pe-*.jpg` — venue photography
 - `vb-logo*.png`, `parchment.jpg` — brand assets
 
-## Updating prices
-All estimator numbers live in the `PRICING` object near the bottom of `index.html`
-(space minimums, per-guest menu prices, drinks, service charge, GET, deposit).
-Displayed prices elsewhere on the page are plain text in the matching sections.
+## Updating prices and menus
+Everything editable is near the bottom of `index.html`:
+- `MINIMUMS`: food & beverage minimum per space (`buyout`, `lounge`), time of day
+  (`day`, `evening`) and day of week. The calendar, quote and space cards all read it.
+- `MENUS`: the six family-style and plated menus. The Menus section and the quote's
+  menu options are both built from this list.
+- `PRICING`: capacities, brunch price, drinks, service charge, GET, deposit.
 
 ## Blocking booked dates
 Add the date to the `BOOKED_DATES` list in `index.html` (format `"2026-12-12"`).
